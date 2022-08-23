@@ -1,4 +1,4 @@
-# Pomegraph
+# Pomegraph_web
 Pomegraph was developed by Naobumi V. Sasaki, National Institute of Infectious Diseases(NIID),
 Japan, 2022. Basic concepts and interfaces ware developed as "iGraph.JS" by Christian Tominski *et al*.
 
