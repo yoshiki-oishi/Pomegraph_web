@@ -27,6 +27,7 @@
 </div>  
 <!-- Graph Controler-->
 <div id="graphControl" class="igraph-buttons graphControlExpand">
+    <i class="fa fa-search-minus fa-lg"></i><input id="slider" type="range" style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i class="fa fa-search-plus fa-lg"></i><br/>
     <span id="radar" class="button-small pure-button"><i class="fa fa-wifi fa-rotate-90"></i> Radar</span><br/>
     <span id="lens" class="button-small pure-button"><i class="fa fa-search"></i> Lens</span><br/>
     <span id="localEdges" class="button-small pure-button group first"><i class="fa fa-angle-double-right"></i> Local Edges</span><br/>
@@ -36,6 +37,8 @@
     <span id="searchPlus" class="button-small pure-button"><i class="fa fa-search-plus fa-lg"></i></span>
     <span id="searchMinus" class="button-small pure-button"><i class="fa fa-search-minus fa-lg"></i></span><br/>
     <span id="expand" class="button-small pure-button"><i class="fa fa-expand fa-lg"></i> Expand</span><br/>
+    <span id="outputJson" class="button-small pure-button">outputJson</span>
+    <div><input type="text" id="nodeInput" placeholder="Search Node"><button id="nodeSearch" class="button-small pure-button">Search</button></div>
 </div>
 <div id="basegraph">
     <canvas id="basegraph_cav"></canvas>
