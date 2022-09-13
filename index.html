@@ -28,40 +28,50 @@
             <!-- Hedder Start -->
             <div class="col-xs-12 topTitle" id="row-title">
                 <h1>PomeGraph – Graphical Tool to bind Epidemiological and Genome information</h1>
-                <span class="subTitle">ver. 1.0.1 (開発版・研究利用にのみ使用可。 Beta version, Resaerch use only)<br/>
-                An epidemiological information (physical data, .xlsx format) is required to draw a view. Optionally, you can combine the genomic information by the result data of phylogenetic analysis (phylogenetic data:[Newick format]) files in file selector boxes below. Combined result will be shown in second tab.
-                </span>
+
             </div>
             <!-- Hedder Rnd -->
             
             <!-- Left column Start -->
             <div class="col-md-2 container mb-0 ml-2 left-col" id="frame_001" style="margin-right:0px;">
                     <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-                    <span class="fs-6"><img src="/img/icon.png" width="20px" height="20px">PomeGraph Dashboard</span>
+                    <div class="fs-6" style="text-align: center;">
+                        <img src="../img/pomegraph_icon.png" width="120px" height="120px"><br/>
+                        <img src="../img/title_logo.png" width="200px" height="100%">
+                    </div>
                     </a>
+                    <div class="subTitle">
+                        <p>ver. 0.8.7 (開発版・研究利用にのみ使用可。 Beta version, Resaerch use only)</p>
+                    </div>
                     <hr>
                     <!-- 2022.08 リリース版メニュー -->
                     <ul class="nav nav-pills flex-column mb-auto">
                     <li class="nav-item">
                         <a href="#" class="nav-link area" id="area1" aria-current="page">
                         <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-                        ホーム
+                        Home
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/docs/about.html#about" class="nav-link area" id="area1" aria-current="page" target="_blank">
+                        <a href="docs/about.html#about" class="nav-link area" id="area1" aria-current="page" target="_blank">
                         <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
                         About
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/docs/about.html#howToUse" class="nav-link area" id="area1" aria-current="page" target="_blank">
+                        <a href="docs/about.html#howToUse" class="nav-link area" id="area1" aria-current="page" target="_blank">
                         <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
                         How to Use
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/docs/about.html#locationZoomFunction" class="nav-link area" id="area1" aria-current="page" target="_blank">
+                        <a href="docs/about.html#input" class="nav-link area" id="area1" aria-current="page" target="_blank">
+                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+                        How to Use
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="docs/about.html#locationZoomFunction" class="nav-link area" id="area1" aria-current="page" target="_blank">
                         <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
                         Local Zoom Function
                         </a>
@@ -123,9 +133,9 @@
                 <b style="padding-left: 16px;">PomeGraph Control</b><br/>
                 
                 <!-- iGraph Control-->
-                <!-- Scale<br/>
-                <i class="fa fa-search-minus fa-lg"></i><input id="silder" type="range" style="width:150px;" name="zoom" min="0" max="300" step="1"><i class="fa fa-search-plus fa-lg"></i><br/>
-                <a href="./about.html" target="_blank">instructions and software description</a><br/> -->
+                Scale<br/>
+                <i class="fa fa-search-minus fa-lg"></i><input id="slider" type="range" style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i class="fa fa-search-plus fa-lg"></i><br/>
+                <!--<a href="./about.html" target="_blank">instructions and software description</a><br/> -->
                 <div id="graphControl" class="igraph-buttons-top">
                     <!-- <span id="radar" class="button-small pure-button"><i class="fa fa-wifi fa-rotate-90"></i> Radar</span><br/> -->
                     <span id="lens" class="button-small pure-button"><i class="fa fa-search"></i> Lens</span><br/>
@@ -136,7 +146,9 @@
                     <span id="searchPlus" class="button-small pure-button"><i class="fa fa-search-plus fa-lg"></i></span>
                     <span id="searchMinus" class="button-small pure-button"><i class="fa fa-search-minus fa-lg"></i></span><br/>
                     <span id="expand" class="button-small pure-button"><i class="fa fa-expand fa-lg"></i> Expand</span><br/>
+                    <span id="outputJson" class="button-small pure-button">outputJson</span>
                 </div>
+                <div><input type="text" id="nodeInput" placeholder="Search Node"><button id="nodeSearch" class="button-small pure-button">Search</button></div>
             </div>
             <!-- Left column End -->
 
@@ -196,9 +208,9 @@
             <!-- Right column End -->
 
             <!-- Footer Start-->
-            <div class="col-xs-12 mb-0" style="padding: 0px">
+            <div class="col-xs-12 mb-0 footer" style="padding: 0px" id="foot">
                 <!--<div class="footer" style="background:#87cefa">-->
-                <div class="footer">
+                <div>
                     <p style="text-align: center" class="Credits">
                         Credits: <a href="https://vcg.informatik.uni-rostock.de/~ct/software/iGraph.js/index.html">iGraph.js</a>
                         • <a href="//www.w3.org/TR/2dcontext/">HTML5 canvas</a>
