@@ -47,83 +47,97 @@
                     <li class="nav-item">
                         <a href="#" class="nav-link area" id="area1" aria-current="page" style="padding:0px">
                         <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-                        ホーム
+                        Home
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="docs/about-j.html#はじめに" class="nav-link area" id="area1" aria-current="page" target="_blank" style="padding:0px">
+                        <a href="docs/about.html#about" class="nav-link area" id="area1" aria-current="page" target="_blank" style="padding:0px">
                         <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-                        はじめに
+                        About
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="docs/about-j.html#データの読込" class="nav-link area" id="area1" aria-current="page" target="_blank" style="padding:0px">
+                        <a href="docs/about.html#howToUse" class="nav-link area" id="area1" aria-current="page" target="_blank" style="padding:0px">
                         <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-                        データの読込
+                        How to Use
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="docs/about-j.html#使い方" class="nav-link area" id="area1" aria-current="page" target="_blank" style="padding:0px">
+                        <a href="docs/about.html#input" class="nav-link area" id="area1" aria-current="page" target="_blank" style="padding:0px">
                         <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-                        使い方
+                        Data Input
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="docs/about-j.html#ビューの操作" class="nav-link area" id="area1" aria-current="page" target="_blank" style="padding:0px">
+                        <a href="docs/about.html#locationZoomFunction" class="nav-link area" id="area1" aria-current="page" target="_blank" style="padding:0px">
                         <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-                        ビューの操作
+                        Local Zoom Function
                         </a>
                     </li>
                     </ul>
                     <hr>
-                <b style="padding-left: 16px;">コントロールパネル</b><br/>
+                <b style="padding-left: 16px;">Pomegraph Control</b><br/>
                 
                 <!-- iGraph Control-->
-                図形の大きさ<br/>
+                Shape Scale<br/>
                 <i class="fa fa-search-minus fa-lg"></i><input id="slider" type="range" style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i class="fa fa-search-plus fa-lg"></i><span id="graphControl" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
-                文字の大きさ<br/>
+                Font Scale<br/>
                 <i class="fa fa-search-minus fa-lg"></i><input id="sliderFont" type="range" style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i class="fa fa-search-plus fa-lg"></i><span id="fontScale" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
                 <div id="graphControl" class="igraph-buttons-top">
                     <span id="crosshairs" class="button-small pure-button"><i class="fa fa-crosshairs fa-lg"></i></span><span id="crosshairsDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span>
                     <span id="searchPlus" class="button-small pure-button"><i class="fa fa-search-plus fa-lg"></i></span><span id="zoominDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span>
                     <span id="searchMinus" class="button-small pure-button"><i class="fa fa-search-minus fa-lg"></i></span><span id="zoomoutDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
-                    <span id="expand" class="button-small pure-button"><i class="fa fa-expand fa-lg"></i> 全画面表示</span><span id="expandDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
-                    <span id="toggleGrid">レーンの切替:</span>&nbsp;OFF<switch id="switch"></switch><span id="swtichDescription" class="tooltip-top">ON&nbsp;<i class="fa fa-question-circle"></span></i>
+                    <span id="expand" class="button-small pure-button"><i class="fa fa-expand fa-lg"></i> Expand</span><span id="expandDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
+                    <span id="toggleGrid">Toggle Grid:</span>&nbsp;OFF<switch id="switch"></switch><span id="swtichDescription" class="tooltip-top">ON&nbsp;<i class="fa fa-question-circle"></span></i>
                 </div>
+                <!-- <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="#" class="nav-link area" id="area1" aria-current="page">
+                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+                    ホーム
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link area" id="area1" onclick="chgImg();return false;">
+                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle" download="canvas.jpg/"></svg>
+                    画面を保存
+                    </a>
+                </li>
+                </ul> -->
             </div>
             <!-- Left column End -->
 
             <!-- Center column Start -->
             <div class="col-md-8 container mb-0 ml-2 center-col" id="frame_001" style="margin-left:0px;margin-left:0px;margin-right:0px;margin-bottom: 0px;">
                 <div class="input group mb-3">
-                    <span><b>疫学データ(Excel):</b></span>
+                    <span><b>Field-Epi Data(Excel):</b></span>
                     <input type="file" id="excel_file" accept='.xlsx'>
                     <span id="ExcelSelect" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span>
                 </div>
                 <div class="input group mb-3">
-                    <span><b>ゲノムデータ (*NEX):</b></span>
+                    <span><b>Genome-Epi Data (*NEX):</b></span>
                     <input class type="file" id="nexus_file" accept=".nex">
                     <span id="nexusSelect" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span>
                     <!--<div class="loading" id="loading"><i class="fa fa-spinner fa-spin" hidden></i></div>-->
                     <span style="margin-left: 50px">
-                        <span id="sreqArea"><b>同一配列データ(*log):</b></span>
+                        <span id="sreqArea"><b>(*Identical Seqs):</b></span>
                         <input class type="file" id="Identical_file" accept=".log">
                         <span id="Identical" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span>
-                        (*両データ必要)
+                        (*both required)
                     </span>
                 </div>
-                <div><span id="outputJson" class="button-small pure-button">Jsonファイル出力</span></div>
+                <div><span id="outputJson" class="button-small pure-button">outputJson</span></div>
                 <div class="input group mb-3">
-                    <span><b>サンプルデータを選択</b></span>
+                    <span><b>Select Sample</b></span>
                     <span id="fileNameList" name="fileList"></span><!--<span id="saveSampleData" class="button-small pure-button">saveSampleData</span>-->
                 </div>
                 
                 <ul class="nav nav-tabs nav-fill">
                     <li class="nav-item active" id="Navi_Field">
-                        <a href="#" class="nav-link" data-toggle="tab" onclick=enable_base()>疫学ビュー<span id="basegrahDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span></a>
+                        <a href="#" class="nav-link" data-toggle="tab" onclick=enable_base()>Field Epi<span id="basegrahDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span></a>
                     </li>
                     <li class="nav-item" id="Navi_Gem">
-                        <a href="#" class="nav-link" data-toggle="tab" onclick=enable_combined()>ゲノムビュー<span id="pomegrahDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span></a>
+                        <a href="#" class="nav-link" data-toggle="tab" onclick=enable_combined()>Genome Epi<span id="pomegrahDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span></a>
                     </li>
                 </ul>
                 <!--  iGraph view canvas. Start-->
@@ -142,7 +156,7 @@
                 <!-- iGraph view cnavas. End-->
                 <!-- histogram view canvas-->
                 <div id="HistogramNavi">
-                    <a href="javascript:void(0);" class="menu js-menu" id="canvasToggle" >流行曲線</a>
+                    <a href="javascript:void(0);" class="menu js-menu" id="canvasToggle" >Epidemic Curve</a>
                 </div>
                 <div id="histogramView">
                     <!--<div class="contents" id="histogramLegendary" hidden><canvas id="graphCanvasLegendary" width="1400", height="700"></canvas></div>-->
@@ -156,24 +170,24 @@
                 <!-- Info panel Start-->
                 <div class="node_infomation" style="height:250px">
                     <div id="helper">
-                        <div class="header"><strong>詳細情報</strong><span id="nodeInfoDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span></div>
-                        <div id="nodeInfo">タグを選択してください</div>
+                        <div class="header"><strong>Tag Information</strong><span id="nodeInfoDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span></div>
+                        <div id="nodeInfo">Select any tag.</div>
                     </div>
                 </div>
                 <div id="legendary" style="width: 200px"></div>
                 <!-- Info panel End-->
                 <hr>
-                <div id="nodeListTitle"><b>タグ一覧</b><span id="nodeListDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span></div>
-                <span style="font-size: 8px;">クリックすると検索窓にタグ番号を入力します。</span>
+                <div id="nodeListTitle"><b>TagList</b><span id="nodeListDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span></div>
+                <span style="font-size: 8px;">Click to enter a value in the search box.</span>
                 <div id="scrollbar03" class="box">
-                    <div id="nodeList">エクセルファイルを選択してください</div>
+                    <div id="nodeList">Input excel file.</div>
                 </div>
                 <hr>
                 <div>
-                    <input type="text" id="nodeInput" placeholder="タグを検索"><button id="nodeSearch" class="button-small pure-button">検索</button><span id="nodeSearchDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
-                    <input type="radio" name="radio1" value="1" checked> 完全一致<br/>
-                    <input type="radio" name="radio1" value="2"> 部分一致<br/>
-                    <b>検索結果</b>
+                    <input type="text" id="nodeInput" placeholder="Search Tag"><button id="nodeSearch" class="button-small pure-button">Search</button><span id="nodeSearchDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
+                    <input type="radio" name="radio1" value="1" checked> Perfect Matching<br/>
+                    <input type="radio" name="radio1" value="2"> Partial Matching<br/>
+                    <b>Search Result</b>
                     <div id="SearchResult"></div>
                 </div>
             </div>
@@ -184,7 +198,7 @@
                 <!--<div class="footer" style="background:#87cefa">-->
                 <div>
                     <p style="text-align: center" class="Credits">
-                        クレジット: <a href="https://vcg.informatik.uni-rostock.de/~ct/software/iGraph.js/index.html">iGraph.js</a>
+                        Credits: <a href="https://vcg.informatik.uni-rostock.de/~ct/software/iGraph.js/index.html">iGraph.js</a>
                         • <a href="//www.w3.org/TR/2dcontext/">HTML5 canvas</a>
                         • <a href="//www.ecma-international.org/publications/standards/Ecma-262.htm">Javascript</a>
                         • <a href="//sheetjs.com/">Sheet.JS</a>
@@ -195,10 +209,9 @@
                         • <a href="//colorbrewer.org">ColorBrewer</a>
                     </p>
                     <p style="text-align: center; margin-bottom: 0px;" class="Author">
-                        &copy; 佐々木直文, 国立感染症研究所(NIID)  病原体ゲノム解析研究センター<br>
-                        〒162-8640 東京都新宿区戸山1-23-1
-                        2022 無断複製を禁ず<br>
-                        最終更新日 : 2022年5月2日
+                        &copy; Naobumi V. Sasaki, Pathogen Genomic Center, National Institute of Infectious Diseases(NIID)<br>
+                        Toyama 1-23-1, Shinjuku-ku, Tokyo 162-8640 Japan
+                        2022 All rights reserved.
                     </p>
                 </div>
             </div>
