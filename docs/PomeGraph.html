@@ -22,28 +22,34 @@
 <body>
 </div>
 <div id="helper" class="infoview">
-    <div class="header"><strong>Node Information</strong></div>
-    <div id="nodeInfo">Select any node.</div>
-</div> 
+    <div class="header"><strong>詳細情報</strong></div>
+    <div id="nodeInfo">タグを選択してください</div>
+</div>
+<div id="legendary" class="legendaryView">
+    <strong>タグ一覧</strong>
+</div>
 <!-- Graph Controler-->
 <div id="graphControl" class="igraph-buttons graphControlExpand">
-    Scale<br/>
+    図形の大きさ<br/>
     <i class="fa fa-search-minus fa-lg"></i><input id="slider" type="range" style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i class="fa fa-search-plus fa-lg"></i><br/>
-    <span id="radar" class="button-small pure-button"><i class="fa fa-wifi fa-rotate-90"></i> Radar</span><br/>
-    <span id="lens" class="button-small pure-button"><i class="fa fa-search"></i> Lens</span><br/>
-    <span id="localEdges" class="button-small pure-button group first"><i class="fa fa-angle-double-right"></i> Local Edges</span><br/>
-    <span id="bringNeighbors" class="button-small pure-button group"><i class="fa fa-angle-double-right"></i> Bring Neighbors</span><br/>
-    <span id="fisheyeDistortion" class="button-small pure-button group last"><i class="fa fa-angle-double-right"></i> Fisheye Distortion</span><br/>
+    文字の大きさ<br/>
+    <i class="fa fa-search-minus fa-lg"></i><input id="sliderFont" type="range" style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i class="fa fa-search-plus fa-lg"></i><br/>
     <span id="crosshairs" class="button-small pure-button"><i class="fa fa-crosshairs fa-lg"></i></span>
     <span id="searchPlus" class="button-small pure-button"><i class="fa fa-search-plus fa-lg"></i></span>
     <span id="searchMinus" class="button-small pure-button"><i class="fa fa-search-minus fa-lg"></i></span><br/>
-    <span id="expand" class="button-small pure-button"><i class="fa fa-expand fa-lg"></i> Expand</span><br/>    <span id="outputJson" class="button-small pure-button">outputJson</span>
-    <div><input type="text" id="nodeInput" placeholder="Search Node"><button id="nodeSearch" class="button-small pure-button">Search</button></div>
+    <span id="expand" class="button-small pure-button"><i class="fa fa-expand fa-lg"></i> 全画面表示</span><br/>
+    <span id="outputJson" class="button-small pure-button">Jsonファイル出力</span>
+    <switch id="switch"></switch>
+    <div><input type="text" id="nodeInput" placeholder="タグを検索"><button id="nodeSearch" class="button-small pure-button">検索</button></div>
+    <input type="radio" name="radio1" value="1" checked> 完全一致<br/>
+    <input type="radio" name="radio1" value="2"> 部分一致<br/>
+    <b>検索結果</b>
+    <div id="SearchResult"></div>
 </div>
 <div id="pomegraph">
     <canvas id="pomegraph_cav"></canvas>
 </div>
-<div class="nw-stick"><img src="/img/wasd.png" width="70px" height="70px"></div>
+<!-- <div class="nw-stick"><img src="/img/wasd.png" width="70px" height="70px"></div> -->
 <!-- <div id="igraph2"></div> -->
 <script>
     new Pomegraph.iGraph("pomegraph", {fullscreen: true});
