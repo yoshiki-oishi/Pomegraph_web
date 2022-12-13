@@ -83,7 +83,7 @@ export class myFileReader {
     }
     
     static makeFileList(){
-        let fileListURL = 'dist/data/json/fileList.json';
+        let fileListURL = '/data/json/fileList.json';
         fetch(fileListURL).
             then(response =>{
                 const res2 = response.clone();
@@ -97,7 +97,7 @@ export class myFileReader {
                 src += '<option value="default">Select strain...</option>'
                 // console.log(fileNameList);
                 fileNameList.forEach(o =>{
-                    src+= `<option value="dist/data/json/${o.file}">${o.name}</option>`
+                    src+= `<option value="/data/json/${o.file}">${o.name}</option>`
                 })
                 src += '</select>';
                 
