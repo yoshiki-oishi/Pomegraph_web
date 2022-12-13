@@ -97,7 +97,7 @@ export class myFileReader {
                 src += '<option value="default">Select strain...</option>'
                 // console.log(fileNameList);
                 fileNameList.forEach(o =>{
-                    src+= `<option value="/data/json/${o.file}">${o.name}</option>`
+                    src+= `<option value="dist/data/json/${o.file}">${o.name}</option>`
                 })
                 src += '</select>';
                 
