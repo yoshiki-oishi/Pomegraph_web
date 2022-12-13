@@ -48,7 +48,7 @@ export class GraphicControl {
 
         this.#viewport = viewport;
         this.#viewtype = viewtype;
-        this.#wasd.src = "dist/img/wasd.png";
+        this.#wasd.src = "https://nasasaki.github.io/Pomegraph_web/dist/img/wasd.png";
 
         this.setEncodingValueNode(graph.max.node.degree, graph.min.node.degree);
         this.setEncodingValueEdge(graph.max.edge.weight, graph.min.edge.weight);
