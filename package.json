@@ -4,13 +4,9 @@
   "description": "Graphical tool to connect the epidemilogic and genomic data and easy handling for the genomic epidemiology (esp. SARS-CoV-2).",
   "main": "iGraph.js",
   "scripts": {
-    "test": "mocha --reporter spec",
     "postinstall": "patch-package",
-    "build": "webpack --config ./webpack.dev.js",
-    "build-prod": "webpack --config ./webpack.prod.js",
-    "start": "webpack serve --config ./webpack.dev.js",
-    "start-prod": "webpack serve --config ./webpack.prod.js",
-    "deploy": "http-server -c-1"
+    "build": "webpack --config ./webpack.prod.js",
+    "start": "webpack serve --config ./webpack.prod.js"
   },
   "repository": {
     "type": "git",
