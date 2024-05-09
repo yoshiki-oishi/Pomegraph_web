@@ -261,7 +261,7 @@
 
     <script>
         let $version = document.getElementById("version");
-        fetch("/version.json")
+        fetch("dist/version.json")
             .then((res) => res.json())
             .then((json) => $version.textContent = json.version)
         ;
