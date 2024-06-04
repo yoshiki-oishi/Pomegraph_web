@@ -6,7 +6,8 @@
   "scripts": {
     "postinstall": "patch-package",
     "build": "webpack --config ./webpack.prod.js",
-    "start": "webpack serve --config ./webpack.prod.js"
+    "start": "webpack serve --config ./webpack.prod.js",
+    "deploy": "http-server -c-1"
   },
   "repository": {
     "type": "git",
