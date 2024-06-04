@@ -1,5 +1,17 @@
-.env
-.history
+.DS_Store
 .vscode
+.history
 node_modules
-js
+package-lock.json
+package.json
+app
+.env
+# Ignore Gradle project-specific cache directory
+.gradle
+.idea
+
+# Ignore Gradle build output directory
+build
+
+# Ignore R private file
+data/modifyAllExcel.Rmd
