@@ -262,27 +262,7 @@
     </div> 
 
     <script>
-        let $version = document.getElementById("version");
-        fetch("/version.json")
-            .then((res) => res.json())
-            .then((json) => $version.textContent = json.version)
-        ;
-        let $base = document.getElementById("basegraph"); 
-        let $combined = document.getElementById("pomegraph");
-        function enable_combined(){
-            $base.hidden = true;
-            $combined.hidden = false;
-            updateOutputJsonButton();
-        }
-        function enable_base(){
-            $base.hidden = false;
-            $combined.hidden = true;
-            updateOutputJsonButton();
-        }
 
-        enable_combined();
-    </script>
-    <script>
         let $outputJson = document.getElementById('outputJson');
         let $pomegraph = document.getElementById('pomegraph');
     
@@ -302,6 +282,26 @@
         // pomegraphの表示/非表示が切り替わった時にボタンの状態を更新
         $pomegraph.addEventListener('hidden.bs.tab', updateOutputJsonButton);
         $pomegraph.addEventListener('shown.bs.tab', updateOutputJsonButton);
+
+        let $version = document.getElementById("version");
+        fetch("/version.json")
+            .then((res) => res.json())
+            .then((json) => $version.textContent = json.version)
+        ;
+        let $base = document.getElementById("basegraph"); 
+        let $combined = document.getElementById("pomegraph");
+        function enable_combined(){
+            $base.hidden = true;
+            $combined.hidden = false;
+            updateOutputJsonButton();
+        }
+        function enable_base(){
+            $base.hidden = false;
+            $combined.hidden = true;
+            updateOutputJsonButton();
+        }
+
+        enable_combined();
     </script>
     <script>
         new Pomegraph.FileReader();
