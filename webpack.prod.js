@@ -22,7 +22,7 @@ module.exports = {
             },
             {
                 directory: path.join(__dirname, 'css'),
-                publicPath: "/css"
+                publicPath: "/dist/css"
             },
             {
                 directory: path.join(__dirname, 'dist'),
@@ -34,7 +34,7 @@ module.exports = {
             },
             {
                 directory: path.join(__dirname, 'img'),
-                publicPath: "/img"
+                publicPath: "/dist/img"
             },
             {
                 directory: path.join(__dirname, '/'),
