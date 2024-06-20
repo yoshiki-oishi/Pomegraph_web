@@ -674,3 +674,97 @@ switch.on::before{
     left: 0;
     top: 0;
 }*/
+
+    #controlMenuContainer {
+        position: relative;
+        width: 100%;
+    }
+
+    #controlMenuPomeContainer {
+        position: relative;
+        width: 100%;
+    }
+
+    #controlMenu,
+    #controlMenuMin {
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    #controlMenuMin {
+        opacity: 0;
+    }
+
+    #controlMenuPome,
+    #controlMenuPomeMin {
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    #controlMenuPomeMin {
+        opacity: 0;
+    }
+
+
+    .topTitle {
+        display: flex;
+        align-items: center;
+    }
+    .header-images {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 20px;
+    }
+
+    .header-icon {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 10px;
+    }
+
+    .header-logo {
+        width: 200px;
+        height: auto;
+    }
+
+    .header-icon {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 10px;
+    }
+
+    .header-logo {
+        width: 200px;
+        height: auto;
+    }
+    h1 {
+        margin: 0;
+        margin-bottom: 10px;
+    }
+
+    .subTitle {
+        margin: 0;
+    }
+    .menu {
+        text-align: center;
+    }
+    .menu ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+    }
+    .menu li {
+        margin: 0 10px;
+    }
+    .menu a {
+        text-decoration: none;
+    }
+
+    .overlay-image {
+        position: absolute;
+        top: 20px;
+        right:  10px;
+        width: 100px;
+        height: 100px;
+    }
