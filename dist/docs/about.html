@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <title>Pomegraph – Graphical Design Tool to bind Epidemiological and Genome information.</title>
+ 
+    <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link crossorigin="anonymous" href="//use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" rel="stylesheet">
+    <link crossorigin="anonymous" href="//unpkg.com/purecss@1.0.0/build/pure-min.css"
+          integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="dist/css/PomeGraph.css"type="text/css">
+</head>
+<body>
+    <div class="mb-2 container-fluid">
+        <div id="frame" class="container mb-2 ml-2">
+            <h1>PomeGraph – Graphical Tool to bind Epidemiological and Genome information</h1>
+            <h4 id="about">About</h4>
+            <p>
+                <em>Pomegraph</em> is a graphical tool for visualization and handling the contact trace diagram especially for SARS-CoV-2 analysis. 
+                This software was developed upon <a href="https://vcg.informatik.uni-rostock.de/~ct/software/iGraph.js/index.html">iGraph.js</a>, 
+                a demo application of interactive graph visualization. The Pomegraph draws mutual linkage among subjects based on epidemiological and genomic reconessence information, 
+                that is represented as labeled nodes which are colored by epidemiological group. 
+                The original ideas behind these interaction techniques have been published in:
+            </p>
+            
+            <ul>
+                <li>
+                    Tominski, C.; Abello, J. & Schumann, H.: <a
+                        href="http://vcg.informatik.uni-rostock.de/~ct/pub_files/Tominski09CGV.pdf">CGV - An Interactive Graph
+                    Visualization System</a>. Computers & Graphics, Vol. 33, No. 6, 2009.
+                </li>
+                <li>
+                    Tominski, C.; Abello, J.; van Ham, F. & Schumann, H.: <a
+                        href="http://vcg.informatik.uni-rostock.de/~ct/pub_files/Tominski06GraphLenses.pdf">Fisheye Tree Views
+                    and Lenses for Graph Visualization</a>. Proc. of IV, London, IEEE, 2006.
+                </li>
+            </ul>
+            
+            <h4 id="howToUse">How to Use</h4>
+            <p>
+                This application have <strong>two tab panels</strong>. After loading input data (JSON format), check the basic physical (epidemiological) association of subjects by &quot;Field Epi (Epidemiolog View)&quot; tab first. Then, switch to &quot;Genome&nbsp;Epi&nbsp;(Genome View)&quot; to analyze composite information.<br />
+Click tagged shapes to show detailed information of individuals on right upper of the window. On &quot;Genome&nbsp;Epi&quot;, <span style="color:#7070c8">epidemiological links</span> and <span style="color:#c87070">genomic links</span> are shown in blue and red lines respectively.
+            </p>
+            <h5 id="input">Data Input</h4>
+            <p>
+                An epidemiological information (physical data, .xlsx format) is required to draw a view. Optionally, you can combine the genomic information by the result data of pylogenetic analysis (phylogenetic data:[Newick format]) files in file selector boxes below. Combined result will be shown in &quot;Genome&nbsp;Epi&quot;.
+            </p>
+            <h5 id="locationZoomFunction">Local Zoom Function</h5>
+            <p>
+                Zoom and pan can be controlled via <b>wheel</b>, <b>right drag</b>, and <b>double click</b>. 
+            </p>                     
+            
+            <p>
+                Finally, if you are not satisfied with the generated layout, you can move nodes by dragging mouse and stick
+                the position by release with pressing <b>shift</b> key. 
+                Should you get lost, press <i class="fa fa-crosshairs"></i> to reset the view. If you prefer a full-page view, press <b><i class="fa fa-expand"></i></b> to open it
+                in new window and check it out!
+            </p>
+        </div>
+    </div>
+</body>
+</html>

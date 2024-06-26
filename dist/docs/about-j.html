@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <title>Pomegraph – Graphical Design Tool to bind Epidemiological and Genome information.</title>
+ 
+    <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link crossorigin="anonymous" href="//use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" rel="stylesheet">
+    <link crossorigin="anonymous" href="//unpkg.com/purecss@1.0.0/build/pure-min.css"
+          integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="dist/css/PomeGraph.css"type="text/css">
+</head>
+<body>
+    <div class="mb-2 container-fluid">
+        <div id="frame" class="container mb-2 ml-2">
+            <h1>Pomegraph – Graphical Tool to bind Epidemiological and Genome information</h1>
+            
+            <p>&nbsp;</p>
+            <h4 id="はじめに">はじめに</h4>
+            <p>
+                <strong><em>Pomegraph</em></strong> は新型コロナウイルス(SARS-CoV-2) 分析用に開発された、実地疫学調査とゲノム疫学情報を統合的に可視化し
+                操作するためのアプリです。このアプリは双方向的なグラフ視覚化のデモアプリケーションである <a href="https://vcg.informatik.uni-rostock.de/~ct/software/iGraph.js/index.html">iGraph.js</a>を下地に開発されました。
+                Pomegraphは疫学情報とゲノム情報に基づいて、対象者・対象ゲノム間の関係線を描画します。
+                画面上で対象者はラベルのついたマーカーとして表現され、疫学調査表上で定義されたグループ毎に色分けされます。
+            </p>
+            <p>&nbsp;</p>
+                       
+            <h4 id="データの読込">データの読込</h4>
+            <h5>〇データ作成</h5>
+            <p style="margin-left:1rem">
+                　Pomegraphに入力するデータは、疫学データとゲノムデータの2つが必要で、それぞれ実地疫学調査に基づく調査集計表と、検体から得られた病原体ゲノム情報から作成します。疫学データは、もととなる調査集計表からExcelテンプレートに従ってファイルを作成します。
+                ゲノムデータは、病原体ゲノム配列のPopART等の分子系統樹推定プログラムによって得られる結果ファイル(PopART型Nexus形式)が入力データになります。
+            </p>
+            <h5>〇データ入力</h5>
+            <p style="margin-left:1rem">
+                　ビューを描画するには、データの読み込みが必要です。
+                「<b>疫学データ(Excel)</b>」に、表示させたい疫学情報データ（xlsx 形式）を読み込むと、疫学ビューが表示されます。
+                「<b>ゲノムデータ (*NEX)</b>」に分子系統樹推定の結果データ（Nexus 形式）と、
+                「<b>同一配列データ(*log)</b>」に同一塩基配列のリスト（PopARTのlog形式）を読み込むと、疫学データとゲノムデータを組み合わせた結果がゲノムビューに表示されます。
+                ユーザーが編集した描画は「Jsonファイル出力」ボタンをクリックすることでJson形式で保存できます。
+                また、「<b>サンプルデータを選択</b>」からSARS-CoV-2の系統を選択することでサンプルデータを描画します。
+            </p>
+            <img style="margin-left:1rem" src="../img/howto-image11.png" width="700px" height="395px">
+            <p>&nbsp;</p>
+
+            <h4 id="使い方">使い方</h4>
+            <p>
+                　このアプリケーションには「疫学ビュー」と「ゲノムビュー」の２つのタブパネルがあります。
+                「疫学ビュー」タブで被験者の基本的な疫学的関連性を確認できます。
+                「ゲノムビュー」タブでは、疫学的情報と連携されたゲノムの系統的関係を確認できます。
+            </p>                     
+            <h5>〇疫学ビュー</h5>
+            <p style="margin-left:1rem">
+                　対象者の発症日/検出日を日付に沿って分類毎に図示したものです。分類は、SurverySheetの「association」欄に従います。
+                「emphasize」欄に指定することで、指定した対象者のマーカーが赤で縁取りされます。
+                聞き取り調査等に基づく確定的な感染リンク情報がある場合は、PhysicalLinkに記載することで関連するマーカー間が青色の線で結ばれます。
+                ビューを拡大すると、マーカーごとのタグ番号や日付が表示され、また、コントロールパネルの「レーンの切替」をオンにすると、分類を見やすくするためのレーンが表示されます。
+            </p>                     
+            <p style="margin-left:1rem">
+                　疫学ビュー下にある「流行曲線」をクリックすると、一日毎の検体数を表した棒グラフ（流行曲線）が表示されます。
+                疫学ビューと同じ分類で色分けがされており、マウスカーソルを合わせることで、該当の日付・分類の対象者数が表示されます。
+            </p>          
+            <img style="margin-left:1rem" src="../img/howto-image12.png" width="700px" height="395px">
+            <p>&nbsp;</p>
+
+            <h5>〇ゲノムビュー</h5>
+            <p style="margin-left:1rem">
+                　対象者の病原体ゲノム情報に基づくつながりを図示したものです。
+                ゲノム配列が同一の対象者は、ゲノムグループとしてまとまりで表示され、親子関係にあるゲノムグループは、ゲノムリンクでつながれています。
+                ゲノムリンク上の刻みは、ゲノムグループ間の塩基置換数を表します。
+                系統関係から橋渡しとなる対象の存在が推測され、該当する対象がデータ中に存在しない節点はブランクマーカーとして表示されます。
+            </p>             
+            <img style="margin-left:1rem" src="../img/howto-image13.png" width="700px" height="395px">
+            <p>&nbsp;</p>
+
+            <h4 id="ビューの操作">ビューの操作</h4>
+            <table style="margin-left:1rem" border="1" cellPadding="2">
+                <tr>
+                    <td>ビューの移動</td>
+                    <td>
+                    ・マウスの右ドラッグ<br>
+                    ・キーボードのWASDキー<br>
+                    ・ダブルクリックで指定場所へ移動
+                    </td>
+                </tr>
+                <tr>
+                    <td>ビューの拡大・縮小</td>
+                    <td>
+                    ・マウスホイール<br>
+                    ・コントロールパネルの <i class="fa fa-search-plus"></i>（拡大）<i class="fa fa-search-minus"></i>（縮小）ボタン<br>
+                    ・コントロールパネルの <i class="fa fa-crosshairs"></i> ボタンでオブジェクト全体を表示
+                    </td>
+                </tr>
+                <tr>
+                    <td>ゲノムグループの移動　　</td>
+                    <td>
+                    　ゲノム情報やデータの数により、ゲノムグループやマーカーが重なって表示されている場合があるため、<br>
+                    必要に応じて位置を移動してください。<br>
+                    ・左ドラッグ<br>
+                    ・拡大している場合はタグマーカー以外の部分をクリックしドラッグ
+                    </td>
+                </tr>
+                <tr>
+                    <td>マーカーの移動</td>
+                    <td>
+                    ・マーカーの形状が見えるまで拡大してから左ドラッグ<br>
+                    ・ドラッグをそのまま離すと元の場所に戻るが、シフトキーを押しながら離すと位置を固定できる
+                    </td>
+                </tr>
+                <tr>
+                    <td>詳細情報の表示</td>
+                    <td>
+                    ・対象のマーカーをクリック<br>
+                    ・タグ一覧のタグ番号をクリック
+                    </td>
+                </tr>
+                <tr>
+                    <td>対象者の検索</td>
+                    <td>
+                    ・検索窓でタグ番号を検索すると、対象のマーカーに移動<br>
+                    ・タグ一覧のタグ番号をクリックすると、検索窓にタグ番号を入力<br>
+                    ・検索方法を部分一致にして検索すると、該当するタグ番号の一覧を検索結果に表示<br>
+                    ・検索結果のタグ番号をクリックすると詳細情報を表示し、検索窓にタグ番号を入力
+                    </td>
+                </tr>
+                <tr>
+                    <td>その他</td>
+                    <td>
+                    ・コントロールパネルの「<i class="fa fa-expand"></i>全画面表示」ボタンをクリックすると、新しいタブで全画面表示<br>
+                    ・コントロールパネルの「図形の大きさ」のスライダーにより、タグマーカーのサイズを調整<br>
+                    ・コントロールパネルの「文字の大きさ」のスライダーにより、タグの文字サイズを調整
+                    </td>
+                </tr>
+            </table>
+            <p>&nbsp;</p>
+
+            <h4 id="謝辞">謝辞</h4>
+            <p>
+                　このアプリの元となったiGraph.jsの文献情報は次の通りです。
+            </p>                     
+            <ul>
+                <li>
+                    Tominski, C.; Abello, J. & Schumann, H.: <a
+                        href="http://vcg.informatik.uni-rostock.de/~ct/pub_files/Tominski09CGV.pdf">CGV - An Interactive Graph
+                    Visualization System</a>. Computers & Graphics, Vol. 33, No. 6, 2009.
+                </li>
+                <li>
+                    Tominski, C.; Abello, J.; van Ham, F. & Schumann, H.: <a
+                        href="http://vcg.informatik.uni-rostock.de/~ct/pub_files/Tominski06GraphLenses.pdf">Fisheye Tree Views
+                    and Lenses for Graph Visualization</a>. Proc. of IV, London, IEEE, 2006.
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

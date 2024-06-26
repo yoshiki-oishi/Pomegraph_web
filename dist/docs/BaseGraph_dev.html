@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <title>PomGraph.js</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link crossorigin="anonymous" href="//use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
+          integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="dist/css/PomeGraph.css" rel="stylesheet" type="text/css">
+
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.0.6/chroma.min.js"></script>
+    <script type="text/javascript" src="/dist/my-bundle.js" charset="utf-8"></script>
+</head>
+<body>
+</div>
+<div id="helper" class="infoview">
+    <div class="header"><strong>Tag Information</strong></div>
+    <div id="nodeInfo">Select any tag.</div>
+</div>
+<div id="legendary" class="legendaryView">
+    <strong>legendary</strong>
+</div>
+<!-- Graph Controler-->
+<div id="graphControl" class="igraph-buttons graphControlExpand">
+    Shape Scale<br/>
+    <i class="fa fa-search-minus fa-lg"></i><input id="slider" type="range" style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i class="fa fa-search-plus fa-lg"></i><br/>
+    Font Scale<br/>
+    <i class="fa fa-search-minus fa-lg"></i><input id="sliderFont" type="range" style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i class="fa fa-search-plus fa-lg"></i><br/>
+    <span id="crosshairs" class="button-small pure-button"><i class="fa fa-crosshairs fa-lg"></i></span>
+    <span id="searchPlus" class="button-small pure-button"><i class="fa fa-search-plus fa-lg"></i></span>
+    <span id="searchMinus" class="button-small pure-button"><i class="fa fa-search-minus fa-lg"></i></span><br/>
+    <span id="expand" class="button-small pure-button"><i class="fa fa-expand fa-lg"></i> Expand</span><br/>
+    <span id="outputJson" class="button-small pure-button">outputJson</span>
+    <switch id="switch"></switch>
+    <div><input type="text" id="nodeInput" placeholder="Search Tag"><button id="nodeSearch" class="button-small pure-button">Search</button></div>
+    <input type="radio" name="radio1" value="1" checked> 完全一致<br/>
+    <input type="radio" name="radio1" value="2"> 部分一致<br/>
+    <b>検索結果</b>
+    <div id="SearchResult"></div>
+</div>
+<div id="basegraph">
+    <canvas id="basegraph_cav"></canvas>
+</div>
+<div class="nw-stick"><img src="dist/img/wasd.png" width="70px" height="70px"></div>
+<!-- <div id="igraph2"></div> -->
+<script>
+    new Pomegraph.iGraph("basegraph", {fullscreen: true});
+</script>
+</body>
+</html>

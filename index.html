@@ -307,7 +307,7 @@
         $pomegraph.addEventListener('shown.bs.tab', updateOutputJsonButton);
 
         let $version = document.getElementById("version");
-        fetch("version.json")
+        fetch("/version.json")
             .then((res) => res.json())
             .then((json) => $version.textContent = json.version)
         ;

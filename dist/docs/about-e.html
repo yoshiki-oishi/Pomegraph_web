@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <title>Pomegraph – Graphical Design Tool to bind Epidemiological and Genome information.</title>
+ 
+    <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link crossorigin="anonymous" href="//use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" rel="stylesheet">
+    <link crossorigin="anonymous" href="//unpkg.com/purecss@1.0.0/build/pure-min.css"
+          integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="dist/css/PomeGraph.css"type="text/css">
+</head>
+<body>
+    <div class="mb-2 container-fluid">
+        <div id="frame" class="container mb-2 ml-2">
+            <h1>Pomegraph – Graphical Tool to bind Epidemiological and Genome information</h1>
+            
+            <p>&nbsp;</p>
+            <h4 id="Introduction">Introduction</h4>
+            <p>
+                <strong><em>Pomegraph</em></strong> is an application developed for the analysis of the novel coronavirus (SARS-CoV-2),
+                designed to integrate and visualize epidemiological field investigations and genomic epidemiology information.
+                This app is built upon the foundation of the bi-directional graph visualization demo application, <a href="https://vcg.informatik.uni-rostock.de/~ct/software/iGraph.js/index.html">iGraph.js.</a>
+                Pomegraph draws lines of relation between subjects and target genomes based on epidemiological and genomic information.
+                On the screen, subjects are represented as markers with labels, and are color-coded according to groups defined in the epidemiological survey form.
+
+            </p>
+            <p>&nbsp;</p>
+            <h4 id="DataLoading">Data Loading</h4>
+
+            <h5>〇 Data Creation</h5>
+            <p style="margin-left:1rem">
+                To input data into Pomegraph, two types of data are required: epidemiological data and genomic data.
+                These are created from the survey summary tables based on field epidemiological investigations and the pathogen genome information obtained from specimens, respectively.
+                The epidemiological data is created by following an Excel template from the original survey summary tables.
+                The genomic data input is the result file (in PopART type Nexus format) obtained from molecular phylogenetic tree estimation programs like PopART, based on pathogen genome sequences.
+            </p>
+            <h5>〇 Data Input</h5>
+            <p style="margin-left:1rem">
+                To render the view, data loading is necessary.
+                Loading epidemiological information data (in xlsx format) into "<b>Epidemiological Data (Excel)</b>" will display the epidemiological view.
+                Loading the result data of molecular phylogenetic tree estimation (in Nexus format) into "<b>Genomic Data (*NEX)</b>", and
+                a list of identical base sequences (in PopART's log format) into "<b>Identical Sequence Data (*log)</b>" will display the results combining epidemiological and genomic data in the genomic view.
+                Drawings edited by the user can be saved in Json format by clicking the "Export Json File" button.
+                Additionally, selecting a SARS-CoV-2 lineage from "<b>Select Sample Data</b>" will render sample data.
+
+            </p>
+            <img style="margin-left:1rem" src="../img/HowToUse_E_001.png" width="700px" height="395px">
+            <p>&nbsp;</p>
+
+            <h4 id="usage">How to Use</h4>
+            <p>
+                This application contains two tab panels: the "Epidemiological View" and the "Genomic View".
+                In the "Epidemiological View" tab, you can check the basic epidemiological connections of the subjects.
+                The "Genomic View" tab allows you to examine the phylogenetic relationships of genomes in conjunction with epidemiological information.
+            </p>
+
+            <h5>〇Epidemiological View</h5>
+            <p style="margin-left:1rem">
+                This represents the subjects categorized by the onset/detection date along the timeline. The categorization follows the "association" field in the SurveySheet.
+                By specifying in the "emphasize" field, the marker of the specified subject will be outlined in red.
+                If there is definitive information about infection links based on interviews, etc., it can be written in PhysicalLink, and the related markers will be connected with a blue line.
+                When you zoom in on the view, the tag number and date for each marker are displayed, and turning on "Switch Lanes" in the control panel will show lanes for easier viewing of the categorization.
+            </p>
+
+            <p style="margin-left:1rem">
+                Clicking on "Epidemic Curve" below the Epidemiological View will display a bar graph (epidemic curve) representing the number of specimens per day.
+                It is color-coded in the same categorization as the Epidemiological View, and hovering the mouse cursor over it will show the number of subjects for the corresponding date and category.
+            </p>
+
+            <img style="margin-left:1rem" src="../img/HowToUse_E_002.png" width="700px" height="395px">
+            <p>&nbsp;</p>
+
+            <h5>〇Genomic View</h5>
+            <p style="margin-left:1rem">
+                This illustrates the connections based on the pathogen genome information of the subjects.
+                Subjects with identical genome sequences are displayed together as a genome group, and genome groups that have a parent-child relationship are connected with genome links.
+                The notches on the genome link represent the number of base substitutions between genome groups.
+                Where a subject is inferred to serve as a bridge in the phylogenetic relationship and such a subject does not exist in the data, the node is displayed as a blank marker.
+            </p>
+
+            <img style="margin-left:1rem" src="../img/HowToUse_E_003.png" width="700px" height="395px">
+            <p>&nbsp;</p>
+
+            <h4 id="view-manipulation">View Manipulation</h4>
+            <table style="margin-left:1rem" border="1" cellPadding="2">
+                <tr>
+                    <td>View Movement</td>
+                    <td>
+                        ・Right drag with mouse<br>
+                        ・WASD keys on keyboard<br>
+                        ・Double-click to move to a specified location
+                    </td>
+                </tr>
+                <tr>
+                    <td>View Zoom In/Out</td>
+                    <td>
+                        ・Mouse wheel<br>
+                        ・Control panel <i class="fa fa-search-plus"></i> (zoom in) <i class="fa fa-search-minus"></i> (zoom out) buttons<br>
+                        ・Control panel <i class="fa fa-crosshairs"></i> button to display the entire object
+                    </td>
+                </tr>
+                <tr>
+                    <td>Genome Group Movement</td>
+                    <td>
+                        　Due to the genomic information and the number of data, genome groups and markers may overlap, so move them as needed.<br>
+                        ・Left drag<br>
+                        ・If zoomed in, click and drag on a part other than tag markers
+                    </td>
+                </tr>
+                <tr>
+                    <td>Marker Movement</td>
+                    <td>
+                        ・Zoom in until the shape of the marker is visible, then left drag<br>
+                        ・Releasing the drag returns it to the original position, but holding the shift key while releasing will fix its position
+                    </td>
+                </tr>
+                <tr>
+                    <td>Displaying Detailed Information</td>
+                    <td>
+                        ・Click on the subject's marker<br>
+                        ・Click on the tag number in the tag list
+                    </td>
+                </tr>
+                <tr>
+                    <td>Subject Search</td>
+                    <td>
+                        ・Search for a tag number in the search box to move to the subject's marker<br>
+                        ・Clicking on the tag number in the tag list inputs the tag number into the search box<br>
+                        ・Searching with partial matches displays a list of corresponding tag numbers in the search results<br>
+                        ・Clicking on a tag number in the search results displays detailed information and inputs the tag number into the search box
+                    </td>
+                </tr>
+                <tr>
+                    <td>Others</td>
+                    <td>
+                        ・Clicking the "Full Screen Display" <i class="fa fa-expand"></i> button on the control panel for a full screen view in a new tab<br>
+                        ・Adjust the size of tag markers with the "Shape Size" slider in the control panel<br>
+                        ・Adjust the size of tag text with the "Text Size" slider in the control panel
+                    </td>
+                </tr>
+            </table>
+            <p>&nbsp;</p>
+
+
+            <h4 id="acknowledgements">Acknowledgements</h4>
+            <p>
+                The bibliographic information for iGraph.js, which served as the foundation for this app, is as follows.
+            </p>
+            <ul>
+                <li>
+                    Tominski, C.; Abello, J. & Schumann, H.: <a
+                        href="http://vcg.informatik.uni-rostock.de/~ct/pub_files/Tominski09CGV.pdf">CGV - An Interactive Graph
+                    Visualization System</a>. Computers & Graphics, Vol. 33, No. 6, 2009.
+                </li>
+                <li>
+                    Tominski, C.; Abello, J.; van Ham, F. & Schumann, H.: <a
+                        href="http://vcg.informatik.uni-rostock.de/~ct/pub_files/Tominski06GraphLenses.pdf">Fisheye Tree Views
+                    and Lenses for Graph Visualization</a>. Proc. of IV, London, IEEE, 2006.
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</body>
+</html>
