@@ -760,7 +760,6 @@ switch.on::before{
     .menu a {
         text-decoration: none;
     }
-
     .overlay-image {
         position: absolute;
         top: 20px;
