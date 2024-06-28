@@ -27,86 +27,46 @@
         <div class="row">
             <!-- Header Start -->
             <div class="col-xs-12 topTitle" id="row-title">
-                <h1>Pomegraph – Graphical Tool to bind Epidemiological and Genome information</h1>
-
-            </div>
-            <!-- Header Rnd -->            
-            <!-- Left column Start -->
-            <div class="col-md-2 container mb-0 ml-2 left-col" id="frame_001" style="margin-right:0px;">
-                    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-                    <div class="fs-6" style="text-align: center;">
-                        <img src="dist/img/pomegraph_icon.png" width="120px" height="120px"><br/>
-                        <img src="dist/img/title_logo.png" width="200px" height="100%">
-                    </div>
-                    </a>
+                <div class="header-images">
+                    <img src="dist/img/pomegraph_icon_transparent.png" alt="Pomegraph Icon" class="header-icon">
+                    <img src="dist/img/title_logo_transparent.png" alt="Title Logo" class="header-logo">
+                </div>
+                <div class="header-text">
+                    <h1>Pomegraph – Graphical Tool to bind Epidemiological and Genome information</h1>
                     <div class="subTitle">
                         <p>ver.<span id="version">2.1.12</span>(Development version; For research use only. Beta version, Research use only)</p>
                     </div>
-                    <hr>
-                    <!-- 2022.08 リリース版メニュー -->
-                    <ul class="nav nav-pills flex-column mb-auto">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link area" id="area1" aria-current="page" style="padding:0px">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-                        Home
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="docs/about-e.html#about" class="nav-link area" id="area1" aria-current="page" target="_blank" style="padding:0px">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-                        About
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="docs/about-e.html#DataLoading" class="nav-link area" id="area1" aria-current="page" target="_blank" style="padding:0px">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-                            Data Input
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="docs/about-e.html#usage" class="nav-link area" id="area1" aria-current="page" target="_blank" style="padding:0px">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-                        How to Use
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="docs/about-e.html#view-manipulation" class="nav-link area" id="area1" aria-current="page" target="_blank" style="padding:0px">
-                        <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-                            View Manipulation
-                        </a>
-                    </li>
-                    </ul>
-                    <hr>
-                <b style="padding-left: 16px;">Pomegraph Control</b><br/>
-                
-                <!-- iGraph Control-->
-                Shape Scale<br/>
-                <i class="fa fa-search-minus fa-lg"></i><input id="slider" type="range" style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i class="fa fa-search-plus fa-lg"></i><span id="graphControl" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
-                Font Scale<br/>
-                <i class="fa fa-search-minus fa-lg"></i><input id="sliderFont" type="range" style="width:150px;" name="zoom" min="1" max="150" step="1" value="50"><i class="fa fa-search-plus fa-lg"></i><span id="fontScale" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
-                <div id="graphControl" class="igraph-buttons-top">
-                    <span id="crosshairs" class="button-small pure-button"><i class="fa fa-crosshairs fa-lg"></i></span><span id="crosshairsDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span>
-                    <span id="searchPlus" class="button-small pure-button"><i class="fa fa-search-plus fa-lg"></i></span><span id="zoominDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span>
-                    <span id="searchMinus" class="button-small pure-button"><i class="fa fa-search-minus fa-lg"></i></span><span id="zoomoutDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
-                    <span id="expand" class="button-small pure-button"><i class="fa fa-expand fa-lg"></i> Expand</span><span id="expandDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
-                    <span id="toggleGrid">Toggle Grid:</span>&nbsp;OFF<switch id="switch"></switch><span id="swtichDescription" class="tooltip-top">ON&nbsp;<i class="fa fa-question-circle"></span></i>
                 </div>
-                <!-- <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
-                    <a href="#" class="nav-link area" id="area1" aria-current="page">
-                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-                    ホーム
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="nav-link area" id="area1" onclick="chgImg();return false;">
-                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle" download="canvas.jpg/"></svg>
-                    画面を保存
-                    </a>
-                </li>
-                </ul> -->
             </div>
-            <!-- Left column End -->
+            <div class="menu">
+                <ul class="nav nav-pills mb-auto">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link area" id="area1" aria-current="page">
+                        home
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="docs/about-e.html#about" class="nav-link area" id="area1" aria-current="page" target="_blank">
+                        About
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="docs/about-e.html#DataLoading" class="nav-link area" id="area1" aria-current="page" target="_blank">
+                        Data Input
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="docs/about-e.html#usage" class="nav-link area" id="area1" aria-current="page" target="_blank">
+                        How to Use
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="docs/about-e.html#view-manipulation" class="nav-link area" id="area1" aria-current="page" target="_blank">
+                        View Manipulation
+                    </a>
+                  </li>
+                </ul>
+              </div>        
 
             <!-- Center column Start -->
             <div class="col-md-8 container mb-0 ml-2 center-col" id="frame_001" style="margin-left:0px;margin-left:0px;margin-right:0px;margin-bottom: 0px;">
@@ -158,13 +118,61 @@
                 <!--  iGraph view canvas. Start-->
                 <div class="tab-pane" id="canView">
                     <div id="base" class="tab-pane show active">
-                        <div id="basegraph" hidden>
+                        <div id="basegraph" hidden style="position: relative;">
                             <canvas id="basegraph_cav" width="1400", height="700"></canvas>
+                            <div id="controlMenuContainer">
+                                <img src="dist\img\wasd.png" class="overlay-image">
+                                <div id="graphControlPanel" class="control-panel" style="position: absolute; top: 20px; z-index: 10;">
+                                    <button id="toggleControlPanel">
+                                        <i class="fas fa-cog"></i>
+                                    </button>
+                                    <div id="controlMenu">
+                                        <!-- iGraph Control-->
+                                        Shape Scale<br/>
+                                        <i class="fa fa-search-minus fa-lg"></i><input id="slider" type="range" style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i class="fa fa-search-plus fa-lg"></i><span id="graphControltooltip" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
+                                        Font Scale<br/>
+                                        <i class="fa fa-search-minus fa-lg"></i><input id="sliderFont" type="range" style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i class="fa fa-search-plus fa-lg"></i><span id="fontScale" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
+                                        <div id="graphControl" class="igraph-buttons-top">
+                                            <span id="crosshairs" class="button-small pure-button"><i class="fa fa-crosshairs fa-lg"></i></span><span id="crosshairsDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span>
+                                            <span id="searchPlus" class="button-small pure-button"><i class="fa fa-search-plus fa-lg"></i></span><span id="zoominDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span>
+                                            <span id="searchMinus" class="button-small pure-button"><i class="fa fa-search-minus fa-lg"></i></span><span id="zoomoutDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
+                                            <span id="expand" class="button-small pure-button"><i class="fa fa-expand fa-lg"></i> Expand</span><span id="expandDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
+                                            <span id="toggleGrid">Toggle Grid:</span>&nbsp;OFF<switch id="switch"></switch><span id="swtichDescription" class="tooltip-top">ON&nbsp;<i class="fa fa-question-circle"></i></span>
+                                        </div>
+                                        </div>
+                                            <div id="controlMenuMin" style="display: none;">
+                                        </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div id="combined" class="tab-pane">
-                        <div id="pomegraph">
+                        <div id="pomegraph" style="position: relative;">
                             <canvas id="pomegraph_cav" width="1400", height="700"></canvas>
+                            <div id="controlMenuPomeContainer">
+                                <img src="dist\img\wasd.png" class="overlay-image">
+                                <div id="graphControlPanelPome" lass="control-panel" style="position: absolute; top: 20px; z-index: 10;">
+                                    <button id="toggleControlPanelPome">
+                                        <i class="fas fa-cog"></i>
+                                    </button>
+                                    <div id="controlMenuPome">
+                                        <!-- iGraph Control-->
+                                        Shape Scale<br/>
+                                        <i class="fa fa-search-minus fa-lg"></i><input id="sliderPome" type="range" style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i class="fa fa-search-plus fa-lg"></i><span id="graphControltooltipPome" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
+                                        Font Scale<br/>
+                                        <i class="fa fa-search-minus fa-lg"></i><input id="sliderFontPome" type="range" style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i class="fa fa-search-plus fa-lg"></i><span id="fontScalePomeMin" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
+                                        <div id="graphControlPome" class="igraph-buttons-top">
+                                            <span id="crosshairsPome" class="button-small pure-button"><i class="fa fa-crosshairs fa-lg"></i></span><span id="crosshairsDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span>
+                                            <span id="searchPlusPome" class="button-small pure-button"><i class="fa fa-search-plus fa-lg"></i></span><span id="zoominDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span>
+                                            <span id="searchMinusPome" class="button-small pure-button"><i class="fa fa-search-minus fa-lg"></i></span><span id="zoomoutDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
+                                            <span id="expandPome" class="button-small pure-button"><i class="fa fa-expand fa-lg"></i> Expand</span><span id="expandDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
+                                            <span id="toggleGridPome">Toggle Grid:</span>&nbsp;OFF<switch id="switch"></switch><span id="swtichDescriptionPome" class="tooltip-top">ON&nbsp;<i class="fa fa-question-circle"></i></span>
+                                        </div>
+                                    </div>
+                                    <div id="controlMenuPomeMin" style="display: none;">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -183,7 +191,7 @@
             <!-- Center column End -->
 
             <!-- Right column Start -->
-            <div class="col-md-2 container mb-0 ml-2 right-col" id="frame_001" style="margin-left:0px;margin-right: -20px;">
+            <div class="col-md-4 container mb-0 ml-4 right-col" id="frame_001" style="margin-left:0px;margin-right: -20px;">
                 <!-- Info panel Start-->
                 <div class="node_infomation" style="height:250px">
                     <div id="helper">
@@ -320,5 +328,60 @@
         new Pomegraph.iGraph("basegraph", {width: 1400, height: 700});
         new Pomegraph.iGraph("pomegraph", {width: 1400, height: 700});
     </script>
+        <script>
+            const controlMenu = document.getElementById('controlMenu');
+            const controlMenuMin = document.getElementById('controlMenuMin');
+            const toggleMenuButton = document.getElementById('toggleControlPanel');
+            const toggleMenuButtonPome = document.getElementById('toggleControlPanelPome');
+    
+            const controlMenuPome= document.getElementById('controlMenuPome');
+            const controlMenuPomeMin = document.getElementById('controlMenuPomeMin');
+    
+            toggleMenuButton.addEventListener('click', function() {
+            if (controlMenuMin.style.display === 'none') {
+                controlMenu.style.opacity = 0;
+                setTimeout(function() {
+                controlMenu.style.display = 'none';
+                controlMenuMin.style.display = 'block';
+                setTimeout(function() {
+                    controlMenuMin.style.opacity = 1;
+                }, 10);
+                }, 100);
+            } else {
+                controlMenuMin.style.opacity = 0;
+                setTimeout(function() {
+                controlMenuMin.style.display = 'none';
+                controlMenu.style.display = 'block';
+                setTimeout(function() {
+                    controlMenu.style.opacity = 1;
+                }, 10);
+                }, 100);
+            }
+            });
+    
+            toggleMenuButtonPome.addEventListener('click', function() {
+                console.log('click');
+            if (controlMenuPomeMin.style.display === 'none') {
+                controlMenuPome.style.opacity = 0;
+                setTimeout(function() {
+                    controlMenuPome.style.display = 'none';
+                    controlMenuPomeMin.style.display = 'block';
+                setTimeout(function() {
+                    controlMenuPomeMin.style.opacity = 1;
+                }, 10);
+                }, 100);
+            } else {
+                controlMenuPomeMin.style.opacity = 0;
+                setTimeout(function() {
+                    controlMenuPomeMin.style.display = 'none';controlMenuPome
+                    controlMenuPome.style.display = 'block';
+                setTimeout(function() {
+                    controlMenuPome.style.opacity = 1;
+                }, 10);
+                }, 100);
+            }
+            });
+    
+        </script>
 </body>
 </html>
