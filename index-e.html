@@ -70,14 +70,13 @@
 
             <!-- Center column Start -->
             <div class="col-md-8 container mb-0 ml-2 center-col" id="frame_001" style="margin-left:0px;margin-left:0px;margin-right:0px;margin-bottom: 0px;">
+                <div>
+                    <!-- 日本語ページへのリンク -->
+                    <a href="index.html" class="button-small pure-button" style="float: right;">Japanese</a>
 
-
-                <!-- 日本語ページへのリンク -->
-                <a href="index.html" class="button-small pure-button" style="float: right;">Japanese</a>
-
-                <!-- Dataへのリンク -->
-                <a href="dist/data" class="button-small pure-button" style="float: right;">DataSet</a>
-
+                    <!-- Dataへのリンク -->
+                    <a href="dist/data" class="button-small pure-button" style="float: right;">DataSet</a>
+                </div>
                 <div class="input group mb-3">
                     <span><b>Field-Epi Data(Excel):</b></span>
                     <input type="file" id="excel_file" accept='.xlsx'>
@@ -160,8 +159,8 @@
                                         Shape Scale<br/>
                                         <i class="fa fa-search-minus fa-lg"></i><input id="sliderPome" type="range" style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i class="fa fa-search-plus fa-lg"></i><span id="graphControltooltipPome" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
                                         Font Scale<br/>
-                                        <i class="fa fa-search-minus fa-lg"></i><input id="sliderFontPome" type="range" style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i class="fa fa-search-plus fa-lg"></i><span id="fontScalePomeMin" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
-                                        <div id="graphControlPome" class="igraph-buttons-top">
+                                        <i class="fa fa-search-minus fa-lg"></i><input id="sliderFontPome" type="range" style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i class="fa fa-search-plus fa-lg"></i><span id="fontScalePomeMin" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>                                       Node Circle Size<br/>
+                                        <i class="fa fa-search-minus fa-lg"></i><input id="sliderCircle" type="range" style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i class="fa fa-search-plus fa-lg"></i><span id="fontScale" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>                                        <div id="graphControlPome" class="igraph-buttons-top">
                                             <span id="crosshairsPome" class="button-small pure-button"><i class="fa fa-crosshairs fa-lg"></i></span><span id="crosshairsDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span>
                                             <span id="searchPlusPome" class="button-small pure-button"><i class="fa fa-search-plus fa-lg"></i></span><span id="zoominDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span>
                                             <span id="searchMinusPome" class="button-small pure-button"><i class="fa fa-search-minus fa-lg"></i></span><span id="zoomoutDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
@@ -178,6 +177,7 @@
                 </div>
                 <!-- iGraph view cnavas. End-->
                 <!-- histogram view canvas-->
+                <div id="histogramView"></div>
                 <div id="HistogramNavi">
                     <a href="javascript:void(0);" class="menu js-menu" id="canvasToggle" >Epidemic Curve</a>
                 </div>
@@ -187,6 +187,7 @@
                 </div>
                 FontSize<input type="range" id="HistgramFontSize" min="8" max="24" value="18">
                 <button id="downloadPDF">Download PDF</button>
+                <div id="downloadPDFBase"></div><div id="downloadPDFPome"></div>
             </div>
             <!-- Center column End -->
 
@@ -328,60 +329,62 @@
         new Pomegraph.iGraph("basegraph", {width: 1400, height: 700});
         new Pomegraph.iGraph("pomegraph", {width: 1400, height: 700});
     </script>
-        <script>
-            const controlMenu = document.getElementById('controlMenu');
-            const controlMenuMin = document.getElementById('controlMenuMin');
-            const toggleMenuButton = document.getElementById('toggleControlPanel');
-            const toggleMenuButtonPome = document.getElementById('toggleControlPanelPome');
-    
-            const controlMenuPome= document.getElementById('controlMenuPome');
-            const controlMenuPomeMin = document.getElementById('controlMenuPomeMin');
-    
-            toggleMenuButton.addEventListener('click', function() {
-            if (controlMenuMin.style.display === 'none') {
-                controlMenu.style.opacity = 0;
-                setTimeout(function() {
-                controlMenu.style.display = 'none';
-                controlMenuMin.style.display = 'block';
-                setTimeout(function() {
-                    controlMenuMin.style.opacity = 1;
-                }, 10);
-                }, 100);
-            } else {
-                controlMenuMin.style.opacity = 0;
-                setTimeout(function() {
-                controlMenuMin.style.display = 'none';
-                controlMenu.style.display = 'block';
-                setTimeout(function() {
-                    controlMenu.style.opacity = 1;
-                }, 10);
-                }, 100);
-            }
-            });
-    
-            toggleMenuButtonPome.addEventListener('click', function() {
-                console.log('click');
-            if (controlMenuPomeMin.style.display === 'none') {
-                controlMenuPome.style.opacity = 0;
-                setTimeout(function() {
-                    controlMenuPome.style.display = 'none';
-                    controlMenuPomeMin.style.display = 'block';
-                setTimeout(function() {
-                    controlMenuPomeMin.style.opacity = 1;
-                }, 10);
-                }, 100);
-            } else {
-                controlMenuPomeMin.style.opacity = 0;
-                setTimeout(function() {
-                    controlMenuPomeMin.style.display = 'none';controlMenuPome
-                    controlMenuPome.style.display = 'block';
-                setTimeout(function() {
-                    controlMenuPome.style.opacity = 1;
-                }, 10);
-                }, 100);
-            }
-            });
-    
-        </script>
+    <style>
+    </style>
+    <script>
+        const controlMenu = document.getElementById('controlMenu');
+        const controlMenuMin = document.getElementById('controlMenuMin');
+        const toggleMenuButton = document.getElementById('toggleControlPanel');
+        const toggleMenuButtonPome = document.getElementById('toggleControlPanelPome');
+
+        const controlMenuPome= document.getElementById('controlMenuPome');
+        const controlMenuPomeMin = document.getElementById('controlMenuPomeMin');
+
+        toggleMenuButton.addEventListener('click', function() {
+        if (controlMenuMin.style.display === 'none') {
+            controlMenu.style.opacity = 0;
+            setTimeout(function() {
+            controlMenu.style.display = 'none';
+            controlMenuMin.style.display = 'block';
+            setTimeout(function() {
+                controlMenuMin.style.opacity = 1;
+            }, 10);
+            }, 100);
+        } else {
+            controlMenuMin.style.opacity = 0;
+            setTimeout(function() {
+            controlMenuMin.style.display = 'none';
+            controlMenu.style.display = 'block';
+            setTimeout(function() {
+                controlMenu.style.opacity = 1;
+            }, 10);
+            }, 100);
+        }
+        });
+
+        toggleMenuButtonPome.addEventListener('click', function() {
+            console.log('click');
+        if (controlMenuPomeMin.style.display === 'none') {
+            controlMenuPome.style.opacity = 0;
+            setTimeout(function() {
+                controlMenuPome.style.display = 'none';
+                controlMenuPomeMin.style.display = 'block';
+            setTimeout(function() {
+                controlMenuPomeMin.style.opacity = 1;
+            }, 10);
+            }, 100);
+        } else {
+            controlMenuPomeMin.style.opacity = 0;
+            setTimeout(function() {
+                controlMenuPomeMin.style.display = 'none';controlMenuPome
+                controlMenuPome.style.display = 'block';
+            setTimeout(function() {
+                controlMenuPome.style.opacity = 1;
+            }, 10);
+            }, 100);
+        }
+        });
+
+    </script>
 </body>
 </html>
