@@ -1,176 +1,251 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
+
+<head>
     <meta charset="UTF-8">
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
     <title>Pomegraph – Graphical Design Tool to bind Epidemiological and Genome information.</title>
- 
+
     <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
     <link crossorigin="anonymous" href="//use.fontawesome.com/releases/v5.8.1/css/all.css"
-          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" rel="stylesheet">
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" rel="stylesheet">
     <link crossorigin="anonymous" href="//unpkg.com/purecss@1.0.0/build/pure-min.css"
-          integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" rel="stylesheet">
+        integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="dist/css/PomeGraph.css"type="text/css">
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.2.1/css/flag-icons.min.css"
+        integrity="sha512-bZBu2H0+FGFz/stDN/L0k8J0G8qVsAL0ht1qg5kTwtAheiXwiRKyCq1frwfbSFSJN3jooR5kauE0YjtPzhZtJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="dist/css/PomeGraph.css" type="text/css">
 
     <script src="https://cdn.sheetjs.com/xlsx-0.18.6/package/dist/xlsx.full.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.0.6/chroma.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
     <script type="text/javascript" src="dist/my-bundle-min.js" charset="utf-8"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.6.10/i18next.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next-http-backend/1.3.2/i18nextHttpBackend.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/i18next-browser-languagedetector/6.1.3/i18nextBrowserLanguageDetector.min.js"></script>
+
 </head>
+
 <body>
     <div class="container-fluid center-block">
-        <div class="row">
+        <div class="row header" id="header">
             <!-- Header Start -->
             <div class="col-xs-12 topTitle" id="row-title">
                 <div class="header-images">
-                  <img src="dist/img/pomegraph_icon_transparent.png" alt="Pomegraph Icon" class="header-icon">
-                  <img src="dist/img/title_logo_transparent.png" alt="Title Logo" class="header-logo">
+                    <img src="dist/img/pomegraph_icon_transparent.png" alt="Pomegraph Icon" class="header-icon">
+                    <img src="dist/img/title_logo_transparent.png" alt="Title Logo" class="header-logo">
                 </div>
                 <div class="header-text">
-                  <h1>Pomegraph – Graphical Tool to bind Epidemiological and Genome information</h1>
-                  <div class="subTitle">
-                    <p>ver.<span id="version">2.1.12</span> (開発版・研究利用にのみ使用可。 Beta version, Research use only)</p>
-                  </div>
+                    <h1>Pomegraph – Graphical Tool to bind Epidemiological and Genome information</h1>
+                    <div class="subTitle">
+                        <p>ver.<span id="version">2.1.12</span><span data-i18n="title_sub"></span></p>
+                    </div>
                 </div>
             </div>
             <div class="menu">
                 <ul class="nav nav-pills mb-auto">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link area" id="area1" aria-current="page">
-                      ホーム
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="docs/about-j.html#はじめに" class="nav-link area" id="area1" aria-current="page" target="_blank">
-                      はじめに
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="docs/about-j.html#データの読込" class="nav-link area" id="area1" aria-current="page" target="_blank">
-                      データの読込
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="docs/about-j.html#使い方" class="nav-link area" id="area1" aria-current="page" target="_blank">
-                      使い方
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="docs/about-j.html#ビューの操作" class="nav-link area" id="area1" aria-current="page" target="_blank">
-                      ビューの操作
-                    </a>
-                  </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0);" class="nav-link area" id="home-link" aria-current="page"
+                            data-i18n="home">
+                            ホーム
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0);" class="nav-link area" id="introduction-link" aria-current="page"
+                            data-i18n="introduction">
+                            はじめに
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0);" class="nav-link area" id="usage-link" aria-current="page"
+                            data-i18n="usage">
+                            使い方
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0);" class="nav-link area" id="data-loading-link" aria-current="page"
+                            data-i18n="data_loading">
+                            データの読込方法
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0);" class="nav-link area" id="view-operation-link" aria-current="page"
+                            data-i18n="view_operation">
+                            ビューの操作方法
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="dist/data" class="nav-link area" aria-current="page"
+                            data-i18n="sample_data">
+                            サンプルデータ
+                        </a>
+                    </li>
                 </ul>
-              </div>
-            <!-- Header Rnd -->            
+            </div>
+        </div>
+            <!-- Header End -->
+        <div class="contents" id="contents">
             <!-- Center column Start -->
-
-            <div class="col-md-8 container mb-0 ml-2 center-col" id="frame_001" style="margin-left:0px;margin-left:0px;margin-right:0px;margin-bottom: 0px;">
+            <div class="col-md-8 container mb-0 ml-0 left-col app_frame" id="FileSelectorPane">
                 <div>
-                    <!-- 英語ページへのリンク -->
-                    <a href="index-e.html" class="button-small pure-button" style="float: right;">English</a>
-
-                    <!-- Dataへのリンク -->
-                    <a href="dist/data" class="button-small pure-button" style="float: right;">DataSet</a>
-
+                    <div class="language-dropdown">
+                        <button class="dropbtn">Languages...</button>
+                        <div class="dropdown-content">
+                            <a href="#" onclick="changeLanguage('ja')"><span class="fi fi-jp fis"></span>&nbsp;日本語</a>
+                            <a href="#" onclick="changeLanguage('en')"><span class="fi fi-us fis"></span>&nbsp;English</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="input group mb-3">
-                    <span><b>疫学データ(Excel):</b></span>
+                    <span><b data-i18n="epidemiological_data"></b></span>
                     <input type="file" id="excel_file" accept='.xlsx'>
                     <span id="ExcelSelect" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span>
                 </div>
                 <div class="input group mb-3">
-                    <span><b>ゲノムデータ (*NEX):</b></span>
+                    <span><b data-i18n="genome_data"></b></span>
                     <input class type="file" id="nexus_file" accept=".nex">
                     <span id="nexusSelect" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span>
                     <!--<div class="loading" id="loading"><i class="fa fa-spinner fa-spin" hidden></i></div>-->
                     <span style="margin-left: 50px">
-                        <span id="sreqArea"><b>同一配列データ(*log):</b></span>
+                        <span id="sreqArea"><b data-i18n="identical_sequence_data"></b></span>
                         <input class type="file" id="Identical_file" accept=".log">
                         <span id="Identical" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span>
-                        (*両データ必要)
+                        <span data-i18n="both_data_required"></span>
                     </span>
                 </div>
                 <div class="input group mb-3">
-                    <span><b>Jsonデータ (*Json):</b></span>
+                    <span><b data-i18n="json_data"></b></span>
                     <input class type="file" id="jsonFile" accept=".json">
                     <span id="inputJson" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span>
-                    <!--<div class="loading" id="loading"><i class="fa fa-spinner fa-spin" hidden></i></div>-->
+                    <div class="loading" id="loading"><i class="fa fa-spinner fa-spin" hidden></i></div>
                 </div>
-                <div><span id="outputJson" class="button-small pure-button">Jsonファイル出力</span></div>
                 <div class="input group mb-3">
-                    <span><b>サンプルデータを選択</b></span>
-                    <span id="fileNameList" name="fileList"></span><!--<span id="saveSampleData" class="button-small pure-button">saveSampleData</span>-->
+                    <span><b data-i18n="select_sample_data"></b></span>
+                    <span id="fileNameList"
+                        name="fileList"></span>
                 </div>
 
-                
+
                 <ul class="nav nav-tabs nav-fill">
                     <li class="nav-item active" id="Navi_Field">
-                        <a href="#" class="nav-link" data-toggle="tab" onclick=enable_base()>疫学ビュー<span id="basegrahDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span></a>
+                        <a href="#" class="nav-link" data-toggle="tab" onclick=enable_base()
+                            data-i18n="epidemiological_view">疫学ビュー<span id="basegrahDescription"
+                                class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span></a>
                     </li>
                     <li class="nav-item" id="Navi_Gem">
-                        <a href="#" class="nav-link" data-toggle="tab" onclick=enable_combined()>ゲノムビュー<span id="pomegrahDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span></a>
+                        <a href="#" class="nav-link" data-toggle="tab" onclick=enable_combined()
+                            data-i18n="genome_view">ゲノムビュー<span id="pomegrahDescription" class="tooltip-top">&nbsp;<i
+                                    class="fa fa-question-circle"></i></span></a>
                     </li>
                 </ul>
                 <!--  iGraph view canvas. Start-->
                 <div class="tab-pane" id="canView">
                     <div id="base" class="tab-pane show active">
                         <div id="basegraph" hidden style="position: relative;">
-                            <canvas id="basegraph_cav" width="1400", height="700"></canvas>
+                            <canvas id="basegraph_cav" width="1400" , height="700"></canvas>
                             <div id="controlMenuContainer">
                                 <img src="dist\img\wasd.png" class="overlay-image">
-                                <div id="graphControlPanel" class="control-panel" style="position: absolute; top: 20px; z-index: 10;">
+                                <div id="graphControlPanel" class="control-panel"
+                                    style="position: absolute; top: 20px; z-index: 10;">
                                     <button id="toggleControlPanel">
                                         <i class="fas fa-cog"></i>
                                     </button>
                                     <div id="controlMenu">
                                         <!-- iGraph Control-->
-                                        図形の大きさ<br/>
-                                        <i class="fa fa-search-minus fa-lg"></i><input id="slider" type="range" style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i class="fa fa-search-plus fa-lg"></i><span id="graphControltooltip" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
-                                        文字の大きさ<br/>
-                                        <i class="fa fa-search-minus fa-lg"></i><input id="sliderFont" type="range" style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i class="fa fa-search-plus fa-lg"></i><span id="fontScale" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
+                                        <span data-i18n="shape_Scale"></span><br />
+                                        <i class="fa fa-search-minus fa-lg"></i><input id="slider" type="range"
+                                            style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i
+                                            class="fa fa-search-plus fa-lg"></i><span id="graphControltooltip"
+                                            class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br />
+                                        <span data-i18n="font_Scale"></span><br />
+                                        <i class="fa fa-search-minus fa-lg"></i><input id="sliderFont" type="range"
+                                            style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i
+                                            class="fa fa-search-plus fa-lg"></i><span id="fontScale"
+                                            class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br />
                                         <div id="graphControl" class="igraph-buttons-top">
-                                            <span id="crosshairs" class="button-small pure-button"><i class="fa fa-crosshairs fa-lg"></i></span><span id="crosshairsDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span>
-                                            <span id="searchPlus" class="button-small pure-button"><i class="fa fa-search-plus fa-lg"></i></span><span id="zoominDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span>
-                                            <span id="searchMinus" class="button-small pure-button"><i class="fa fa-search-minus fa-lg"></i></span><span id="zoomoutDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
-                                            <span id="expand" class="button-small pure-button"><i class="fa fa-expand fa-lg"></i> 全画面表示</span><span id="expandDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
-                                            <span id="toggleGrid">レーンの切替:</span>&nbsp;OFF<switch id="switch"></switch><span id="swtichDescription" class="tooltip-top">ON&nbsp;<i class="fa fa-question-circle"></i></span>
+                                            <span id="crosshairs" class="button-small pure-button"><i
+                                                    class="fa fa-crosshairs fa-lg"></i></span><span
+                                                id="crosshairsDescription" class="tooltip-top">&nbsp;<i
+                                                    class="fa fa-question-circle"></i></span>
+                                            <span id="searchPlus" class="button-small pure-button"><i
+                                                    class="fa fa-search-plus fa-lg"></i></span><span
+                                                id="zoominDescription" class="tooltip-top">&nbsp;<i
+                                                    class="fa fa-question-circle"></i></span>
+                                            <span id="searchMinus" class="button-small pure-button"><i
+                                                    class="fa fa-search-minus fa-lg"></i></span><span
+                                                id="zoomoutDescription" class="tooltip-top">&nbsp;<i
+                                                    class="fa fa-question-circle"></i></span><br />
+                                            <span id="expand" class="button-small pure-button"><i
+                                                    class="fa fa-expand fa-lg"></i><span
+                                                    data-i18n="Expand"></span></span><span id="expandDescription"
+                                                class="tooltip-top">&nbsp;<i
+                                                    class="fa fa-question-circle"></i></span><br />
+                                            <span id="toggleGrid" data-i18n="toggleGrid"></span>&nbsp;OFF<switch
+                                                id="switch"></switch>
+                                            <span id="swtichDescription" class="tooltip-top">ON&nbsp;<i
+                                                    class="fa fa-question-circle"></i></span>
                                         </div>
-                                        </div>
-                                            <div id="controlMenuMin" style="display: none;">
-                                        </div>
+                                    </div>
+                                    <div id="controlMenuMin" style="display: none;">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div id="combined" class="tab-pane">
                         <div id="pomegraph" style="position: relative;">
-                            <canvas id="pomegraph_cav" width="1400", height="700"></canvas>
+                            <canvas id="pomegraph_cav" width="1400" , height="700"></canvas>
                             <div id="controlMenuPomeContainer">
                                 <img src="dist\img\wasd.png" class="overlay-image">
-                                <div id="graphControlPanelPome" lass="control-panel" style="position: absolute; top: 20px; z-index: 10;">
+                                <div id="graphControlPanelPome" lass="control-panel"
+                                    style="position: absolute; top: 20px; z-index: 10;">
                                     <button id="toggleControlPanelPome">
                                         <i class="fas fa-cog"></i>
                                     </button>
                                     <div id="controlMenuPome">
                                         <!-- iGraph Control-->
-                                        図形の大きさ<br/>
-                                        <i class="fa fa-search-minus fa-lg"></i><input id="sliderPome" type="range" style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i class="fa fa-search-plus fa-lg"></i><span id="graphControltooltipPome" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
-                                        文字の大きさ<br/>
-                                        <i class="fa fa-search-minus fa-lg"></i><input id="sliderFontPome" type="range" style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i class="fa fa-search-plus fa-lg"></i><span id="fontScalePomeMin" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
-                                        円の大きさ<br/>
-                                        <i class="fa fa-search-minus fa-lg"></i><input id="sliderCircle" type="range" style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i class="fa fa-search-plus fa-lg"></i><span id="fontScale" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
+                                        <span data-i18n="shape_Scale"></span><br />
+                                        <i class="fa fa-search-minus fa-lg"></i><input id="sliderPome" type="range"
+                                            style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i
+                                            class="fa fa-search-plus fa-lg"></i><span id="graphControltooltipPome"
+                                            class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br />
+                                        <span data-i18n="font_Scale"></span><br />
+                                        <i class="fa fa-search-minus fa-lg"></i><input id="sliderFontPome" type="range"
+                                            style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i
+                                            class="fa fa-search-plus fa-lg"></i><span id="fontScalePomeMin"
+                                            class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br />
+                                        <span data-i18n="circle_Scale"></span><br />
+                                        <i class="fa fa-search-minus fa-lg"></i><input id="sliderCircle" type="range"
+                                            style="width:150px;" name="zoom" min="1" max="100" step="1" value="50"><i
+                                            class="fa fa-search-plus fa-lg"></i><span id="fontScale"
+                                            class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br />
                                         <div id="graphControlPome" class="igraph-buttons-top">
-                                            <span id="crosshairsPome" class="button-small pure-button"><i class="fa fa-crosshairs fa-lg"></i></span><span id="crosshairsDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span>
-                                            <span id="searchPlusPome" class="button-small pure-button"><i class="fa fa-search-plus fa-lg"></i></span><span id="zoominDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span>
-                                            <span id="searchMinusPome" class="button-small pure-button"><i class="fa fa-search-minus fa-lg"></i></span><span id="zoomoutDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
-                                            <span id="expandPome" class="button-small pure-button"><i class="fa fa-expand fa-lg"></i> 全画面表示</span><span id="expandDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
-                                            <span id="toggleGridPome">レーンの切替:</span>&nbsp;OFF<switch id="switch"></switch><span id="swtichDescriptionPome" class="tooltip-top">ON&nbsp;<i class="fa fa-question-circle"></i></span>
+                                            <span id="crosshairsPome" class="button-small pure-button"><i
+                                                    class="fa fa-crosshairs fa-lg"></i></span><span
+                                                id="crosshairsDescription" class="tooltip-top">&nbsp;<i
+                                                    class="fa fa-question-circle"></i></span>
+                                            <span id="searchPlusPome" class="button-small pure-button"><i
+                                                    class="fa fa-search-plus fa-lg"></i></span><span
+                                                id="zoominDescription" class="tooltip-top">&nbsp;<i
+                                                    class="fa fa-question-circle"></i></span>
+                                            <span id="searchMinusPome" class="button-small pure-button"><i
+                                                    class="fa fa-search-minus fa-lg"></i></span><span
+                                                id="zoomoutDescription" class="tooltip-top">&nbsp;<i
+                                                    class="fa fa-question-circle"></i></span><br />
+                                            <span id="expandPome" class="button-small pure-button"><i
+                                                    class="fa fa-expand fa-lg"></i><span
+                                                    data-i18n="Expand"></span></span><span id="expandDescription"
+                                                class="tooltip-top">&nbsp;<i
+                                                    class="fa fa-question-circle"></i></span>
+                                            <span id="outputJson" class="button-small pure-button"><i class="fas fa-file-export"></i></span>
                                         </div>
                                     </div>
                                     <div id="controlMenuPomeMin" style="display: none;">
@@ -184,88 +259,100 @@
                 <!-- histogram view canvas-->
                 <div id="histogramView"></div>
                 <div id="HistogramNavi">
-                    <a href="javascript:void(0);" class="menu js-menu" id="canvasToggle" >流行曲線</a>
+                    <a href="javascript:void(0);" class="menu js-menu" id="canvasToggle"
+                        data-i18n="Epidemic_Curve">流行曲線</a>
                 </div>
                 <div id="histogramView">
-                    <!--<div class="contents" id="histogramLegendary" hidden><canvas id="graphCanvasLegendary" width="1400", height="700"></canvas></div>-->
-                    <div class="contents" id="histogram"><canvas id="graphCanvas" width="1400", height="700"></canvas></div>
+                    <div class="contents" id="histogram" style="position: relative;">
+                        <canvas id="graphCanvas"></canvas>
+                        <div id="controls" style="position: absolute; top: 20px; z-index: 10;">
+                            FontSize<input type="range" id="HistgramFontSize" min="8" max="24" value="18"><br/>
+                                <span id="downloadPDF" class="button-small pure-button"><i class="fas fa-file-export"></i></span>
+                                <div id="downloadPDFBase"></div>
+                                <div id="downloadPDFPome"></div>
+                            </div>
+                    </div>
                 </div>
-                FontSize<input type="range" id="HistgramFontSize" min="8" max="24" value="18">
-                <button id="downloadPDF">Download PDF</button>
-                <div id="downloadPDFBase"></div><div id="downloadPDFPome"></div>
             </div>
             <!-- Center column End -->
-
+            <div class="" id="Splitter"><img src="dist/img/slider-sumb-large.png" width="10px" height="30px"/></div>
             <!-- Right column Start -->
-            <div class="col-md-4 container mb-0 ml-2 right-col" id="frame_001" style="margin-left:0px;margin-right: -20px;">
+            <div class="col-md-4 container mb-0 ml-0 right-col app_frame" id="InformationPane">
                 <!-- Info panel Start-->
                 <div class="node_infomation" style="height:250px">
                     <div id="helper">
-                        <div class="header"><strong>詳細情報</strong><span id="nodeInfoDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span></div>
-                        <div id="nodeInfo">タグを選択してください</div>
+                        <div class="header"><strong data-i18n="detailed_info"></strong><span id="nodeInfoDescription"
+                                class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span></div>
+                        <div id="nodeInfo" data-i18n="select_tag"></div>
                     </div>
                 </div>
                 <div id="legendary"></div>
                 <!-- Info panel End-->
                 <hr>
-                <div id="nodeListTitle"><b>タグ一覧</b><span id="nodeListDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span></div>
-                <span style="font-size: 8px;">クリックすると検索窓にタグ番号を入力します。</span>
+                <div id="nodeListTitle"><b data-i18n="tag_list"></b><span id="nodeListDescription"
+                        class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span></div>
+                <span style="font-size: 8px;" data-i18n="click_to_search"></span>
                 <div id="scrollbar03" class="box">
-                    <div id="nodeList">エクセルファイルを選択してください</div>
+                    <div id="nodeList" data-i18n="select_excel_file"></div>
                 </div>
                 <hr>
                 <div>
-                    <input type="text" id="nodeInput" placeholder="タグを検索"><button id="nodeSearch" class="button-small pure-button">検索</button><span id="nodeSearchDescription" class="tooltip-top">&nbsp;<i class="fa fa-question-circle"></i></span><br/>
-                    <input type="radio" name="radio1" value="1" checked> 完全一致<br/>
-                    <input type="radio" name="radio1" value="2"> 部分一致<br/>
-                    <b>検索結果</b>
+                    <input type="text" id="nodeInput" placeholder="タグを検索"><button id="nodeSearch"
+                        class="button-small pure-button" data-i18n="search_tag"></button><span
+                        id="nodeSearchDescription" class="tooltip-top">&nbsp;<i
+                            class="fa fa-question-circle"></i></span><br />
+                    <input type="radio" name="radio1" value="1" checked><span data-i18n="exact_match"></span><br />
+                    <input type="radio" name="radio1" value="2" ><span data-i18n="partial_match"></span><br />
+                    <b data-i18n="search_results"></b>
                     <div id="SearchResult"></div>
                 </div>
             </div>
             <!-- Right column End -->
-
-            <!-- Footer Start-->
-            <div class="col-xs-12 mb-0 footer" style="padding: 0px" id="foot">
-                <!--<div class="footer" style="background:#87cefa">-->
-                <div>
-                    <p style="text-align: center" class="Credits">
-                        クレジット: <a href="https://vcg.informatik.uni-rostock.de/~ct/software/iGraph.js/index.html">iGraph.js</a>
-                        • <a href="//www.w3.org/TR/2dcontext/">HTML5 canvas</a>
-                        • <a href="//www.ecma-international.org/publications/standards/Ecma-262.htm">Javascript</a>
-                        • <a href="//sheetjs.com/">Sheet.JS</a>
-                        • <a href="//getbootstrap.com/">Bootstrap</a>
-                        • <a href="http://purecss.io/">Pure.css</a>
-                        • <a href="//necolas.github.io/normalize.css/">normalize.css</a>
-                        • <a href="//github.com/FortAwesome/Font-Awesome">Font Awesome</a>
-                        • <a href="//colorbrewer.org">ColorBrewer</a>
-                    </p>
-                    <p style="text-align: center; margin-bottom: 0px;" class="Author">
-                        &copy; 佐々木直文, 国立感染症研究所(NIID)  病原体ゲノム解析研究センター<br>
-                        〒162-8640 東京都新宿区戸山1-23-1
-                        2022 無断複製を禁ず<br>
-                        最終更新日 : 2022年5月2日
-                    </p>
-                </div>
+        </div>
+        <!-- Footer Start-->
+        <div class="col-xs-12 mb-0 footer" style="padding: 0px" id="foot">
+            <!--<div class="footer" style="background:#87cefa">-->
+            <div>
+                <p style="text-align: center" class="Credits" id="credits">
+                    クレジット:
+                    • <a href="https://vcg.informatik.uni-rostock.de/~ct/software/iGraph.js/index.html">iGraph.js</a>
+                    • <a href="//www.w3.org/TR/2dcontext/">HTML5 canvas</a>
+                    • <a href="//www.ecma-international.org/publications/standards/Ecma-262.htm">Javascript</a>
+                    • <a href="//sheetjs.com/">Sheet.JS</a>
+                    • <a href="//getbootstrap.com/">Bootstrap</a>
+                    • <a href="http://purecss.io/">Pure.css</a>
+                    • <a href="//necolas.github.io/normalize.css/">normalize.css</a>
+                    • <a href="//github.com/FortAwesome/Font-Awesome">Font Awesome</a>
+                    • <a href="//colorbrewer.org">ColorBrewer</a>
+                </p>
+                <p style="text-align: center; margin-bottom: 0px;" class="Author" id="copyright">
+                    &copy; 佐々木直文, 国立感染症研究所(NIID) 病原体ゲノム解析研究センター<br>
+                    〒162-8640 東京都新宿区戸山1-23-1
+                    2022 無断複製を禁ず<br>
+                    最終更新日 : 2022年5月2日
+                </p>
             </div>
-            <!-- Footer End-->
-</div>
+        </div>
+        <!-- Footer End-->
     </div>
-</div>
+    <!-- End of Outer Container-->
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" data-bs-backdrop="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" data-bs-backdrop="false" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">PomeGraph Notice</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="exampleModalLabel">PomeGraph Notice</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="modal-body">Some link information are not proper. Check it please.</div>
             </div>
         </div>
-    </div> 
+    </div>
     <!-- ExcelFormatCheck-->
-    <div class="modal fade" id="ExcelFormatCheck" tabindex="-1" data-bs-backdrop="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="ExcelFormatCheck" tabindex="-1" data-bs-backdrop="false"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -275,23 +362,24 @@
                 <div class="modal-body" id="ExcelFormatCheck-modal-body"></div>
             </div>
         </div>
-    </div> 
+    </div>
     <!-- toast -->
     <div class="position-fixed bottom-0 end-0 p-3" id="toastWindow">
-        <div aria-live="assertive" id="excelImportErrorArea" class="toast" role="alert" aria-atomic="true" style="position: relative; min-height: 200px;">
+        <div aria-live="assertive" id="excelImportErrorArea" class="toast" role="alert" aria-atomic="true"
+            style="position: relative; min-height: 200px;">
             <div class="toast-header bg-danger text-white bg-opacity-75">
                 <strong class="me-auto">ExcelImportError</strong>
                 <span><small>now</small></span><span class="mx-1"><b>&times;</b></span>
             </div>
             <div id="excelImportErrorToast" class="toast-body"></div>
         </div>
-    </div> 
+    </div>
 
     <script>
 
         let $outputJson = document.getElementById('outputJson');
         let $pomegraph = document.getElementById('pomegraph');
-    
+
         function updateOutputJsonButton() {
             if ($pomegraph.hidden) {
                 $outputJson.setAttribute('disabled', 'disabled');
@@ -301,10 +389,10 @@
                 $outputJson.classList.remove('disabled');
             }
         }
-    
+
         // 初期状態でボタンの状態を更新
         updateOutputJsonButton();
-    
+
         // pomegraphの表示/非表示が切り替わった時にボタンの状態を更新
         $pomegraph.addEventListener('hidden.bs.tab', updateOutputJsonButton);
         $pomegraph.addEventListener('shown.bs.tab', updateOutputJsonButton);
@@ -313,29 +401,28 @@
         fetch("version.json")
             .then((res) => res.json())
             .then((json) => $version.textContent = json.version)
-        ;
-        let $base = document.getElementById("basegraph"); 
+            ;
+        let $base = document.getElementById("basegraph");
         let $combined = document.getElementById("pomegraph");
-        function enable_combined(){
+        function enable_combined() {
             $base.hidden = true;
             $combined.hidden = false;
             updateOutputJsonButton();
         }
-        function enable_base(){
+        function enable_base() {
             $base.hidden = false;
             $combined.hidden = true;
             updateOutputJsonButton();
         }
-
         enable_combined();
     </script>
     <script>
         new Pomegraph.FileReader();
-        new Pomegraph.iGraph("basegraph", {width: 1400, height: 700});
-        new Pomegraph.iGraph("pomegraph", {width: 1400, height: 700});
+        new Pomegraph.iGraph("basegraph", { width: 1400, height: 700 });
+        new Pomegraph.iGraph("pomegraph", { width: 1400, height: 700 });
     </script>
     <style>
- 
+
     </style>
     <script>
         const controlMenu = document.getElementById('controlMenu');
@@ -343,54 +430,164 @@
         const toggleMenuButton = document.getElementById('toggleControlPanel');
         const toggleMenuButtonPome = document.getElementById('toggleControlPanelPome');
 
-        const controlMenuPome= document.getElementById('controlMenuPome');
+        const controlMenuPome = document.getElementById('controlMenuPome');
         const controlMenuPomeMin = document.getElementById('controlMenuPomeMin');
 
-        toggleMenuButton.addEventListener('click', function() {
-        if (controlMenuMin.style.display === 'none') {
-            controlMenu.style.opacity = 0;
-            setTimeout(function() {
-            controlMenu.style.display = 'none';
-            controlMenuMin.style.display = 'block';
-            setTimeout(function() {
-                controlMenuMin.style.opacity = 1;
-            }, 10);
-            }, 100);
-        } else {
-            controlMenuMin.style.opacity = 0;
-            setTimeout(function() {
-            controlMenuMin.style.display = 'none';
-            controlMenu.style.display = 'block';
-            setTimeout(function() {
-                controlMenu.style.opacity = 1;
-            }, 10);
-            }, 100);
-        }
+        toggleMenuButton.addEventListener('click', function () {
+            if (controlMenuMin.style.display === 'none') {
+                controlMenu.style.opacity = 0;
+                setTimeout(function () {
+                    controlMenu.style.display = 'none';
+                    controlMenuMin.style.display = 'block';
+                    setTimeout(function () {
+                        controlMenuMin.style.opacity = 1;
+                    }, 10);
+                }, 100);
+            } else {
+                controlMenuMin.style.opacity = 0;
+                setTimeout(function () {
+                    controlMenuMin.style.display = 'none';
+                    controlMenu.style.display = 'block';
+                    setTimeout(function () {
+                        controlMenu.style.opacity = 1;
+                    }, 10);
+                }, 100);
+            }
         });
 
-        toggleMenuButtonPome.addEventListener('click', function() {
+        toggleMenuButtonPome.addEventListener('click', function () {
             console.log('click');
-        if (controlMenuPomeMin.style.display === 'none') {
-            controlMenuPome.style.opacity = 0;
-            setTimeout(function() {
-                controlMenuPome.style.display = 'none';
-                controlMenuPomeMin.style.display = 'block';
-            setTimeout(function() {
-                controlMenuPomeMin.style.opacity = 1;
-            }, 10);
-            }, 100);
-        } else {
-            controlMenuPomeMin.style.opacity = 0;
-            setTimeout(function() {
-                controlMenuPomeMin.style.display = 'none';controlMenuPome
-                controlMenuPome.style.display = 'block';
-            setTimeout(function() {
-                controlMenuPome.style.opacity = 1;
-            }, 10);
-            }, 100);
+            if (controlMenuPomeMin.style.display === 'none') {
+                controlMenuPome.style.opacity = 0;
+                setTimeout(function () {
+                    controlMenuPome.style.display = 'none';
+                    controlMenuPomeMin.style.display = 'block';
+                    setTimeout(function () {
+                        controlMenuPomeMin.style.opacity = 1;
+                    }, 10);
+                }, 100);
+            } else {
+                controlMenuPomeMin.style.opacity = 0;
+                setTimeout(function () {
+                    controlMenuPomeMin.style.display = 'none'; controlMenuPome
+                    controlMenuPome.style.display = 'block';
+                    setTimeout(function () {
+                        controlMenuPome.style.opacity = 1;
+                    }, 10);
+                }, 100);
+            }
+        });
+
+        i18next
+            .use(i18nextHttpBackend)
+            .use(i18nextBrowserLanguageDetector)
+            .init({
+                fallbackLng: 'ja',
+                debug: true,
+                backend: {
+                    loadPath: '/_locale/{{lng}}/{{ns}}.json'
+                }
+            }, function (err, t) {
+                updateContent();
+            });
+
+        function updateMenuLinks(lang) {
+            const baseUrl = lang === 'ja' ? 'dist/docs/about-j.html' : 'dist/docs/about-e.html';
+            const links = {
+                'introduction-link': 'introduction_anchor',
+                'data-loading-link': 'data_loading_anchor',
+                'usage-link': 'usage_anchor',
+                'view-operation-link': 'view_operation_anchor'
+            };
+
+            document.getElementById('home-link').href = '#';
+
+            for (const [id, anchor] of Object.entries(links)) {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.href = baseUrl + i18next.t(anchor);
+                    // element.href = baseUrl + anchor;
+                }
+            }
         }
+
+        function updateContent() {
+            const currentLang = i18next.language;
+
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (key.startsWith('[html]')) {
+                    element.innerHTML = i18next.t(key.substring(6));
+                } else if (key.startsWith('[placeholder]')) {
+                    element.placeholder = i18next.t(key.substring(12));
+                } else {
+                    element.textContent = i18next.t(key);
+                }
+            });
+
+            document.getElementById('credits').innerHTML = i18next.t('credits');
+            document.getElementById('copyright').innerHTML = i18next.t('copyright');
+
+            updateMenuLinks(currentLang);
+        }
+
+        function changeLanguage(lng) {
+            i18next.changeLanguage(lng, updateContent);
+        }
+
+        function setupVersionObserver() {
+            const versionElement = document.getElementById('version');
+            if (versionElement) {
+                const observer = new MutationObserver(updateContent);
+                observer.observe(versionElement, { childList: true });
+            }
+        }
+
+        function setupMenuListeners() {
+            document.querySelectorAll('.menu .nav-link').forEach(link => {
+                link.addEventListener('click', (event) => {
+                    if (link.id === 'home-link') {
+                        event.preventDefault();
+                    } else {
+                        event.preventDefault();
+                        window.open(link.href, '_blank');
+                    }
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setupVersionObserver();
+            setupMenuListeners();
+            updateContent();
         });
 
     </script>
+    <script type="text/javascript">
+        // Hirizontal size slider by Splitter
+    //let StartDrag = false;
+
+    window.onload = onLoad;
+
+    function onLoad() {
+        const splitter = document.querySelector("#Splitter");
+        const leftFrame = document.querySelector("#FileSelectorPane");
+        const rightFrame = document.querySelector("#InformationPane");
+  
+
+        splitter.addEventListener("mousedown", (event) => {
+            document.addEventListener("mousemove", resize, false);
+            document.addEventListener("mouseup", () => {
+                document.removeEventListener("mousemove", resize, false);
+            }, false);
+        });
+
+        function resize(e) {
+            const size = `${e.x}px`;
+            leftFrame.style.flexBasis = size;
+        }
+    }
+    </script>
 </body>
+
 </html>
