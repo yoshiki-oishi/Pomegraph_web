@@ -15,17 +15,14 @@ jobs:
 
       - name: Prepare deployment files
         run: |
-          mkdir deploy
-          cp -r dist/* deploy/
-          cp *.html deploy/
-          cp favicon.ico deploy/
-          cp version.json deploy/
+          cp -r dist/* .
+          rm -rf dist
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./deploy
+          publish_dir: .
           force_orphan: true
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
